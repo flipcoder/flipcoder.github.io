@@ -1,0 +1,51 @@
+module.exports = (grunt)->
+    grunt.initConfig do
+        #clean:
+        #    '../js/'
+        copy:
+            js:
+                files:
+                    * expand: true
+                      cwd: 'node_modules/jquery/dist/'
+                      src: 'jquery.min.js'
+                      dest: '../js/'
+                    * expand: true
+                      cwd: 'node_modules/snapsvg/dist/'
+                      src: 'snap.svg-min.js'
+                      dest: '../js/'
+        pug:
+            src:
+                expand: true
+                src: ['*.pug']
+                dest: '../'
+                ext: '.html'
+            options:
+                pretty: true
+        stylus:
+            src:
+                expand: true
+                src: ['*.styl']
+                dest: '../css/'
+                ext: '.css'
+        livescript:
+            src:
+                expand: true
+                src:
+                    '*.ls'
+                    '!Gruntfile.ls'
+                dest: '../js/'
+                ext: '.js'
+            options:
+                bare: true
+
+    grunt.loadNpmTasks 'grunt-contrib-clean'
+    grunt.loadNpmTasks 'grunt-contrib-copy'
+    grunt.loadNpmTasks 'grunt-contrib-pug'
+    grunt.loadNpmTasks 'grunt-contrib-stylus'
+    #grunt.loadNpmTasks 'grunt-browserify'
+    grunt.loadNpmTasks 'grunt-livescript'
+
+    grunt.registerTask 'default', [
+        'pug', 'stylus', 'livescript', 'copy'
+    ]
+

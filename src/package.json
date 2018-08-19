@@ -8,7 +8,11 @@
         "grunt": "*",
         "grunt-contrib-pug": "*",
         "grunt-contrib-stylus": "*",
+        "grunt-contrib-copy": "*",
+        "grunt-contrib-clean": "*",
         "grunt-livescript": "*",
-        "pug": "*"
+        "snapsvg": "*",
+        "pug": "*",
+        "jquery": "*"
     }
 }
