@@ -1,18 +1,37 @@
+client_pkg =
+    'jquery'
+    'snapsvg'
+    'semantic-ui'
+
+client_js_list = []
+client_css_list = []
+for pkg in client_pkg
+    client_js_list.push do
+        expand: true
+        cwd: 'node_modules/' + pkg + '/dist'
+        src: '*.js'
+        dest: '../js/' + pkg
+    client_css_list.push do
+        expand: true
+        cwd: 'node_modules/' + pkg + '/dist'
+        src: '*.css'
+        dest: '../css/' + pkg
+client_js = files: client_js_list
+client_css = files: client_css_list
+
 module.exports = (grunt)->
     grunt.initConfig do
         #clean:
         #    '../js/'
         copy:
             js:
-                files:
-                    * expand: true
-                      cwd: 'node_modules/jquery/dist/'
-                      src: 'jquery.min.js'
-                      dest: '../js/'
-                    * expand: true
-                      cwd: 'node_modules/snapsvg/dist/'
-                      src: 'snap.svg-min.js'
-                      dest: '../js/'
+                client_js
+            css:
+                client_css
+                #* expand: true
+                #  cwd: 'node_modules/semantic-ui/dist/'
+                #  src: 'semantic.min.css'
+                #  dest: '../css/'
         pug:
             src:
                 expand: true

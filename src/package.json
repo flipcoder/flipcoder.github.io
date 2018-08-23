@@ -13,6 +13,7 @@
         "grunt-livescript": "*",
         "snapsvg": "*",
         "pug": "*",
-        "jquery": "*"
+        "jquery": "*",
+        "semantic-ui": "*"
     }
 }
