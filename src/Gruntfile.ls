@@ -3,59 +3,65 @@ client_pkg =
     'snapsvg'
     'semantic-ui'
 
-client_js_list = []
-client_css_list = []
-for pkg in client_pkg
-    client_js_list.push do
-        expand: true
-        cwd: 'node_modules/' + pkg + '/dist'
-        src: '*.js'
-        dest: '../js/' + pkg
-    client_css_list.push do
-        expand: true
-        cwd: 'node_modules/' + pkg + '/dist'
-        src: '*.css'
-        dest: '../css/' + pkg
-client_js = files: client_js_list
-client_css = files: client_css_list
+#client_pkg_list = {'js':[],'css':[]}
+#for ft in ['js','css']
+#    for pkg in client_pkg
+#        client_pkg_list[ft].push do
+#            expand: true
+#            cwd: 'node_modules/' + pkg + '/dist'
+#            src: '*.'+ft
+#            dest: '../'+ft+'/' + pkg
+#client_js = files: client_pkg_list['js']
+#client_css = files: client_pkg_list['css']
+#
+#for ft in ['js','css']
+#    for pkg in client_pkg
+#        client_pkg_list[ft].push do
+#            expand: true
+#            cwd: 'node_modules/' + pkg + '/dist'
+#            src: '*.'+ft
+#            dest: '../'+ft+'/' + pkg
+#
+client_pkg_list = []
+for ft in ['js','css']
+    for pkg in client_pkg
+        client_pkg_list.push do
+            expand: true
+            cwd: 'node_modules/' + pkg + '/dist'
+            src: '*'
+            dest: '../pkg/'+pkg+'/'
+client_pkg = files: client_pkg_list
+
+cfg =
+    copy:
+        pkg: client_pkg
+    pug:
+        src:
+            expand: true
+            src: ['*.pug']
+            dest: '../'
+            ext: '.html'
+        options:
+            pretty: true
+    stylus:
+        src:
+            expand: true
+            src: ['*.styl']
+            dest: '../css/'
+            ext: '.css'
+    livescript:
+        src:
+            expand: true
+            src:
+                '*.ls'
+                '!Gruntfile.ls'
+            dest: '../js/'
+            ext: '.js'
+        options:
+            bare: true
 
 module.exports = (grunt)->
-    grunt.initConfig do
-        #clean:
-        #    '../js/'
-        copy:
-            js:
-                client_js
-            css:
-                client_css
-                #* expand: true
-                #  cwd: 'node_modules/semantic-ui/dist/'
-                #  src: 'semantic.min.css'
-                #  dest: '../css/'
-        pug:
-            src:
-                expand: true
-                src: ['*.pug']
-                dest: '../'
-                ext: '.html'
-            options:
-                pretty: true
-        stylus:
-            src:
-                expand: true
-                src: ['*.styl']
-                dest: '../css/'
-                ext: '.css'
-        livescript:
-            src:
-                expand: true
-                src:
-                    '*.ls'
-                    '!Gruntfile.ls'
-                dest: '../js/'
-                ext: '.js'
-            options:
-                bare: true
+    grunt.initConfig cfg
 
     grunt.loadNpmTasks 'grunt-contrib-clean'
     grunt.loadNpmTasks 'grunt-contrib-copy'

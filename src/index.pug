@@ -3,13 +3,62 @@ html(lang='en')
   head
     meta(charset='utf-8')
     link(rel='stylesheet', type='text/css', href='css/index.css')
-    link(rel='stylesheet', type='text/css', href='css/semantic-ui/semantic.min.css')
-    script(src='js/jquery/jquery.min.js')
-    script(src='js/semantic-ui/semantic.min.js')
+    link(rel='stylesheet', type='text/css', href='pkg/semantic-ui/semantic.min.css')
+    script(src='pkg/jquery/jquery.min.js')
+    script(src='pkg/semantic-ui/semantic.min.js')
     title flipcoder
 
   body
-    .ui.container
-      h1 flipcoder's Project Page
+    .ui.container.center.aligned
+       img.ghost(src='img/flipcoder.png')
+       h2 My Projects
+       a(href='https://github.com/flipcoder/') View My GitHub
+       //-.ui.container.fluid.segment: img.projectimg(src='img/textbeat.png')
+       //-.ui.container.fluid.segment: img.projectimg(src='img/qor.png')
+       //-.ui.container.fluid.segment: img.projectimg(src='img/microarmy.png')
+       //-.ui.container.fluid.segment: img.projectimg(src='img/bomberoni.png')
+    br
+    //-.ui.grid
+    //-    .eight.wide.column
+    //-        img.projectimg(src='img/textbeat.png')
+    .ui.container.center.aligned
+      a(href='https://github.com/flipcoder/qor'): img.projectimg(src='img/qor.png')
+      a(href='https://github.com/flipcoder/textbeat'): img.projectimg(src='img/textbeat.png')
+      a(href='https://github.com/flipcoder/game-off-2016'): img.projectimg(src='img/hip.png')
+      a(href='https://github.com/flipcoder/microarmy'): img.projectimg(src='img/microarmy.png')
+      a(href='https://github.com/flipcoder/bouncingship'): img.projectimg(src='img/bouncingship.png')
+      a(href='https://github.com/flipcoder/bomberoni'): img.projectimg(src='img/bomberoni.png')
+          
+    br
+    .ui.container.center.aligned
+      h3 But wait, there's more! 
       a(href='https://github.com/flipcoder/') View My GitHub
+    br
+    br
+    
+    //-.ui.container.center.aligned
+    //-  a.ui.red.label(href='https://github.com/flipcoder/FRAG.EXE') FRAG.EXE
+    //-    .detail OpenGL First person shooter w/ online play. Written with my own engine.
+    //-  br
+    //-  br
+    //-  a.ui.grey.label(href='https://github.com/flipcoder/mx') mx
+    //-    .detail C++ concurrency: await, yield, channels, i/o multiplexer (experimental)
+    //-  br
+    //-  br
+    //-  a.ui.yellow.label(href='https://github.com/flipcoder/litebot') litebot
+    //-    .detail IRC bot w/ plugin support and built-in card game
+    //-  br
+    //-  br
+    //-  a.ui.pink.label(href='https://github.com/flipcoder/kit') kit
+    //-    .detail C++ utility library
+    //-  br
+    //-  br
+    //-  //-a.ui.blue.label(href='https://github.com/flipcoder/cardmode') cardmode)
+    //-  //-  .detail Textfile-based project management w/ Trello sync
+    //-  //-br
+    //-  //-br
+    //-  a.ui.red.label(href='https://github.com/flipcoder/qorpse') qorpse
+    //-    .detail Top-down retro horror shooter.  Written in my own engine.
+    //-  br
+    //-  br
 

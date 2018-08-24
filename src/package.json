@@ -14,6 +14,7 @@
         "snapsvg": "*",
         "pug": "*",
         "jquery": "*",
-        "semantic-ui": "*"
+        "semantic-ui": "*",
+        "nib": "*"
     }
 }
