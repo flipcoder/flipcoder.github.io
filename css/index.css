@@ -1,1 +1,33 @@
-#inner{display:table;margin:0 auto}.projectimg{max-width:570px}img.ghost{width:128px}.projbox{width:570px}
+html, body {
+  margin: 0;
+  height: 100%;
+  overflow-y: scroll !important;
+}
+
+.border {
+    outline: 2px solid #333;
+}
+
+#inner{
+    display:table;
+    margin:0 auto;
+}
+.projectimg{
+    max-width:570px;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+}
+img.ghost{
+    width:128px;
+}
+.projbox{
+    min-height: 100%;
+    width:570px;
+}
+body {
+    margin: 0;
+    overflow: hidden;
+    background: rgb(218,218,219);
+    background: linear-gradient(90deg, gray 0%, rgba(255,255,255,1) 49%, gray 100%) !important;
+}
+
