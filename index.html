@@ -24,6 +24,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
     <!-- Add Roboto font -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Add Permanent Marker font -->
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
 
     <style>
         body {
@@ -401,33 +403,21 @@
 
         .nav-links {
             margin: 0;
-            justify-content: center;
+            justify-content: center;  /* Center the nav buttons */
             display: flex;
-            gap: 20px;
+            gap: 5px;  /* Keep the reduced gap */
             list-style-type: none;
             padding: 0;
         }
 
-        /* Update nav separators */
+        /* Remove nav separators */
         .nav-links li:not(:last-child)::after {
-            content: '';  /* Changed from '|' to empty content */
-            position: absolute;
-            right: -10px;
-            top: 20%;
-            height: 60%;  /* Taller separator */
-            width: 1px;
-            background: linear-gradient(
-                to bottom,
-                transparent,
-                rgba(0, 0, 0, 0.1) 20%,
-                rgba(0, 0, 0, 0.1) 80%,
-                transparent
-            );
+            content: none;  /* Removed separator */
         }
 
         .nav-links li {
             position: relative;
-            padding: 0 10px;
+            padding: 0;  /* Removed padding to bring buttons closer */
         }
 
         /* Update nav link styles for active state */
@@ -863,8 +853,8 @@
         /* Update social links styles */
         .social-links {
             display: flex;
-            gap: 12px;
-            justify-content: flex-end;
+            gap: 8px;  /* Reduced gap between social buttons */
+            justify-content: flex-end;  /* Align to the right */
             align-items: center;
             margin-right: 10px;
         }
@@ -1318,8 +1308,7 @@
 
         /* Add styles for the message bubble */
         .message-bubble {
-            position: relative;
-            display: inline-block;
+            font-family: 'Roboto', sans-serif;  /* Change to match the caption font */
             background-color: rgba(255, 255, 255, 0.9);
             border-radius: 10px;
             padding: 10px 15px;
@@ -1327,10 +1316,9 @@
             box-shadow: 
                 0 4px 10px rgba(0, 0, 0, 0.2),
                 0 2px 5px rgba(0, 0, 0, 0.1);
-            font-family: 'Patrick Hand', cursive;  /* Silly comic-like font */
-            font-size: 16px;  /* Slightly larger font size */
-            font-weight: bold;  /* Make the font bold */
-            color: #333;
+            font-size: 14px;  /* Adjust font size if needed */
+            font-weight: normal;  /* Make the font normal */
+            color: #333;  /* Text color */
             max-width: 200px;  /* Limit the width of the bubble */
             position: relative;  /* For the arrow */
             align-self: center;  /* Center the bubble vertically */
@@ -1384,6 +1372,62 @@
         .site-title a:hover {
             color: #ff5500;  /* Change color on hover */
         }
+
+        /* Button styles */
+        .button-container {
+            margin-top: 20px;  /* Space above buttons */
+            display: flex;
+            justify-content: center;  /* Center the buttons */
+            gap: 10px;  /* Space between buttons */
+        }
+
+        .btn {
+            padding: 10px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            color: white;  /* Text color */
+            transition: all 0.3s ease;  /* Smooth transition for all properties */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2),  /* Shadow for depth */
+                        0 2px 4px rgba(0, 0, 0, 0.1);  /* Subtle inner shadow */
+        }
+
+        .download-btn {
+            background-color: #28a745;  /* Green background */
+        }
+
+        .download-btn:hover {
+            background-color: #218838;  /* Darker green on hover */
+            transform: translateY(-2px);  /* Lift effect */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3),  /* Enhanced shadow on hover */
+                        0 4px 6px rgba(0, 0, 0, 0.2);  /* Inner shadow */
+        }
+
+        .view-source-btn {
+            background-color: #6c757d;  /* Gray background */
+        }
+
+        .view-source-btn:hover {
+            background-color: #5a6268;  /* Darker gray on hover */
+            transform: translateY(-2px);  /* Lift effect */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3),  /* Enhanced shadow on hover */
+                        0 4px 6px rgba(0, 0, 0, 0.2);  /* Inner shadow */
+        }
+
+        .btn i {
+            margin-right: 5px;  /* Space between icon and text */
+        }
+
+        /* Compact social buttons */
+        .social-links {
+            display: flex;
+            gap: 8px;  /* Reduced gap between social buttons */
+            justify-content: flex-end;  /* Align to the right */
+            align-items: center;
+            margin-right: 10px;
+        }
     </style>
 </head>
 <body>
@@ -1403,29 +1447,29 @@
         </div>
         <!-- Animated Navbar -->
         <nav class="navbar">
-                <a href="#" class="site-logo" data-section="projects">
-                    <img src="images/pfp.jpg" alt="Profile Picture">
-                </a>
+            <a href="#" class="site-logo" data-section="projects">
+                <img src="images/pfp.jpg" alt="Profile Picture">
+            </a>
             <ul class="nav-links">
-                    <li><a href="#" data-section="projects"><i class="fas fa-code"></i>Projects</a></li>
-                    <li><a href="#" data-section="music"><i class="fas fa-music"></i>Music</a></li>
-                    <li><a href="#" data-section="blog"><i class="fas fa-pen"></i>Blog</a></li> <!-- Blog comes before Contact -->
-                    <li><a href="#" data-section="contact"><i class="fas fa-envelope"></i>Contact</a></li> <!-- Contact comes after Blog -->
+                <li><a href="#" data-section="projects"><i class="fas fa-code"></i>Projects</a></li>
+                <li><a href="#" data-section="music"><i class="fas fa-music"></i>Music</a></li>
+                <li><a href="#" data-section="writings"><i class="fas fa-pen"></i>Writings</a></li>
+                <li><a href="#" data-section="contact"><i class="fas fa-envelope"></i>Contact</a></li>
             </ul>
-                <div class="social-links">
-                    <a href="https://github.com/flipcoder" target="_blank" title="GitHub">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a href="https://twitter.com/flipcoder" target="_blank" title="X (Twitter)">
-                        <span>X</span>
-                    </a>
-                    <a href="https://soundcloud.com/flipcoder" target="_blank" title="SoundCloud">
-                        <i class="fab fa-soundcloud"></i>
-                    </a>
-                    <a href="https://youtube.com/@flipcoder" target="_blank" title="YouTube">
-                        <i class="fab fa-youtube"></i>
-                    </a>
-                </div>
+            <div class="social-links">
+                <a href="https://github.com/flipcoder" target="_blank" title="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://twitter.com/flipcoder" target="_blank" title="X (Twitter)">
+                    <span>X</span>
+                </a>
+                <a href="https://soundcloud.com/flipcoder" target="_blank" title="SoundCloud">
+                    <i class="fab fa-soundcloud"></i>
+                </a>
+                <a href="https://youtube.com/@flipcoder" target="_blank" title="YouTube">
+                    <i class="fab fa-youtube"></i>
+                </a>
+            </div>
         </nav>
 
        <!-- Centered PFP Image and Message Bubble -->
@@ -1450,94 +1494,216 @@
                 <h1><i class="fas fa-code"></i>Projects</h1>
                 
                 <div class="project-container">
-                    <a href="https://github.com/flipcoder/midimech" target="_blank">
+                    <a href="#midimech">  <!-- Updated link to point to the new midimech section -->
                         <div class="project-image-wrapper">
                             <img src="images/midimech.png" alt="midimech" class="project-image">
-                            <p class="project-description">Next-gen isomorphic musical layout engine</p>
+                            <p class="project-description">Isomorphic Musical Layout Engine</p>
                         </div>
                     </a>
-            </div>
+                </div>
 
                 <div class="project-container">
-                    <a href="https://github.com/flipcoder/qor" target="_blank">
-                        <div class="project-image-wrapper">
-                            <img src="images/qor.png" alt="Qor Game Engine" class="project-image">
-                            <p class="project-description">C++ OpenGL game engine</p>
-                        </div>
-                    </a>
-            </div>
-
-                <div class="project-container">
-                    <a href="https://github.com/flipcoder/textbeat" target="_blank">
+                    <a href="#textbeat">  <!-- Updated link to point to the new TextBeat section -->
                         <div class="project-image-wrapper">
                             <img src="images/textbeat.png" alt="TextBeat" class="project-image">
-                            <p class="project-description">Text-based music sequencer and midi shell</p>
-            </div>
-                        </a>
-        </div>
-                
+                            <p class="project-description">Text-based Music Sequencer and Midi Shell</p>
+                        </div>
+                    </a>
+                </div>
+
                 <div class="project-container">
-                    <a href="https://github.com/flipcoder/game-off-2016" target="_blank">
+                    <a href="#qor">  <!-- Updated link to point to the new Qor section -->
+                        <div class="project-image-wrapper">
+                            <img src="images/qor.png" alt="Qor Game Engine" class="project-image">
+                            <p class="project-description">C++ OpenGL Game Engine</p>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="project-container">
+                    <a href="#hip">  <!-- Updated link to point to the new Hacking in Progress section -->
                         <div class="project-image-wrapper">
                             <img src="images/hip.png" alt="Hacking in Progress" class="project-image">
                             <p class="project-description">GitHub Game-Off 2016 Featured Game</p>
                         </div>
                     </a>
                 </div>
-                
+
                 <div class="project-container">
-                    <a href="https://github.com/flipcoder/microarmy" target="_blank">
+                    <a href="#microarmy">  <!-- Updated link to point to the new MicroArmy section -->
                         <div class="project-image-wrapper">
                             <img src="images/microarmy.png" alt="MicroArmy" class="project-image">
-                            <p class="project-description">Run and Gun OpenGL Platformer</p>
+                            <p class="project-description">Run-and-Gun OpenGL Platformer</p>
                         </div>
                     </a>
                 </div>
-                
+
                 <div class="project-container">
-                    <a href="https://github.com/flipcoder/siege-tools" target="_blank">
+                    <a href="#siegetools">  <!-- Updated link to point to the new Siege Tools section -->
                         <div class="project-image-wrapper">
                             <img src="images/siegetools.png" alt="Siege Tools" class="project-image">
                             <p class="project-description">Intelligent Build Automation System</p>
                         </div>
                     </a>
                 </div>
-                
+
                 <div class="project-container">
-                    <a href="https://github.com/flipcoder/bomberoni" target="_blank">
+                    <a href="#bomberoni">  <!-- Updated link to point to the new Bomberoni section -->
                         <div class="project-image-wrapper">
                             <img src="images/bomberoni.png" alt="Bomberoni" class="project-image">
-                            <p class="project-description">Bomberman Clone</p>
+                            <p class="project-description">Bomberman Inspired Game</p>
                         </div>
                     </a>
+                </div>
+            </div>
+
+            <!-- New Midimech Section -->
+            <div id="midimech" class="content-section">
+                <h1>
+                    <img src="images/midimech-icon.png" alt="Midimech Icon" style="height: 24px; vertical-align: middle; margin-right: 5px;"> <!-- Use the Midimech icon -->
+                    midimech
+                </h1>
+                <div class="card">
+                    <h3>About midimech</h3>
+                    <p>Midimech is an isomorphic musical layout engine for LinnStrument and Launchpad X.</p>
+                    <p>For more information, visit the <a href="https://github.com/flipcoder/midimech" target="_blank" style="color: #ff5500; text-decoration: none; font-weight: bold;">GitHub page</a>.</p>
+                    
+                    <!-- Screenshot of Midimech -->
+                    <img src="images/midimech-screen0.png" alt="Midimech Screenshot" style="max-width: 100%; border-radius: 10px; margin-top: 10px;"> <!-- Updated image source -->
+
+                    <!-- Buttons for Download and View Source -->
+                    <div class="button-container">
+                        <a href="https://github.com/flipcoder/midimech/releases" target="_blank" class="btn download-btn">
+                            <i class="fas fa-download"></i> Download
+                        </a>
+                        <a href="https://github.com/flipcoder/midimech" target="_blank" class="btn view-source-btn">
+                            <i class="fas fa-code"></i> View Source
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- New Qor Section -->
+            <div id="qor" class="content-section">
+                <h1>Qor</h1>  <!-- Removed the icon -->
+                <div class="card">
+                    <h3>About Qor</h3>
+                    <p>Qor is a C++ OpenGL game engine with Python scripting.</p>
+                    <p>For more information, visit the <a href="https://github.com/flipcoder/qor" target="_blank" style="color: #ff5500; text-decoration: none; font-weight: bold;">GitHub page</a>.</p>
+                    
+                    <!-- Buttons for Download and View Source -->
+                    <div class="button-container">
+                        <a href="https://github.com/flipcoder/qor" target="_blank" class="btn view-source-btn">
+                            <i class="fas fa-code"></i> View Source
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- New TextBeat Section -->
+            <div id="textbeat" class="content-section">
+                <h1>TextBeat</h1>  <!-- Removed the icon -->
+                <div class="card">
+                    <h3>About TextBeat</h3>
+                    <p>TextBeat is a text-based music sequencer, MIDI shell, and music theory language with Vim integration.</p>
+
+                    <!-- Buttons for Download and View Source -->
+                    <div class="button-container">
+                        <a href="https://github.com/flipcoder/textbeat" target="_blank" class="btn view-source-btn">
+                            <i class="fas fa-code"></i> View Source
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- New MicroArmy Section -->
+            <div id="microarmy" class="content-section">
+                <h1>Micro Army</h1>  <!-- Removed the icon -->
+                <div class="card">
+                    <h3>About Micro Army</h3>
+                    <p>Micro Army is a run-and-gun OpenGL platformer with gameplay similar to Contra.</p>
+                    
+                    <!-- Screenshot of MicroArmy -->
+                    <img src="images/microarmy-screen0.jpg" alt="MicroArmy Screenshot" style="max-width: 100%; border-radius: 10px; margin-top: 10px;"> <!-- Update with actual screenshot -->
+
+                    <!-- Buttons for Download and View Source -->
+                    <div class="button-container">
+                        <a href="https://github.com/flipcoder/microarmy" target="_blank" class="btn view-source-btn">
+                            <i class="fas fa-code"></i> View Source
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- New Siege Tools Section -->
+            <div id="siegetools" class="content-section">
+                <h1>Siege Tools</h1>  <!-- Removed the icon -->
+                <div class="card">
+                    <h3>About Siege Tools</h3>
+                    <p>Siege Tools is a set of command line tools for building and running software without project files.</p>
+                    <p>SiegeMake can detect build systems of a project and process the build steps for different languages.</p>
+                    <p>It contains a plug-in system for custom build and packaging steps, such as installers and obfuscators.</p>
+
+                    <!-- Buttons for Download and View Source -->
+                    <div class="button-container">
+                        <a href="https://github.com/flipcoder/siege-tools" target="_blank" class="btn view-source-btn">
+                            <i class="fas fa-code"></i> View Source
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- New Bomberoni Section -->
+            <div id="bomberoni" class="content-section">
+                <h1>Bomberoni</h1>  <!-- Removed the icon -->
+                <div class="card">
+                    <h3>About Bomberoni</h3>
+                    <p>Bomberoni is a bomberman-inspired game that was written quickly for fun. Its net play is incomplete.</p>
+     
+                    <!-- Buttons for Download and View Source -->
+                    <div class="button-container">
+                        <a href="https://github.com/flipcoder/bomberoni" target="_blank" class="btn view-source-btn">
+                            <i class="fas fa-code"></i> View Source
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- New Hacking in Progress Section -->
+            <div id="hip" class="content-section">
+                <h1>Hacking in Progress</h1>  <!-- Project title -->
+                <div class="card">
+                    <h3>About Hacking in Progress</h3>
+                    <p>This project was created for the GitHub Game Off 2016 and was one of the featured winners.</p>
+                    <p>For more information, visit the <a href="https://github.com/flipcoder/game-off-2016" target="_blank" style="color: #ff5500; text-decoration: none; font-weight: bold;">GitHub page</a>.</p>
+                    
+                    <!-- Buttons for Download and View Source -->
+                    <div class="button-container">
+                        <a href="https://github.com/flipcoder/game-off-2016" target="_blank" class="btn view-source-btn">
+                            <i class="fas fa-code"></i> View Source
+                        </a>
+                    </div>
                 </div>
             </div>
 
             <!-- Music Section -->
             <div id="music" class="content-section">
                 <h1><i class="fas fa-music"></i>Music</h1>
-                <!-- <div class="card">
-                    <h3>Latest Tracks</h3>
-                    <iframe width="100%" 
-                            height="450" 
-                            scrolling="no" 
-                            frameborder="no" 
-                            allow="autoplay" 
-                            src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/users/flipcoder&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true">
-                    </iframe>
-                </div> -->
                 <div class="card">
-                    <h3>In Progress</h3>
-                    <p>I haven't finished my music page yet!  Check out my <a href="https://soundcloud.com/flipcoder" target="_blank" style="color: #ff5500; text-decoration: none; font-weight: bold;">SoundCloud</a>!</p>
+                    <h3>Playlist</h3>
+                    <iframe width="100%" height="450" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/594200541&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
+                    <div style="font-size: 10px; color: #cccccc; line-break: anywhere; word-break: normal; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; font-family: Interstate, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Garuda, Verdana, Tahoma, sans-serif; font-weight: 100;">
+                        <a href="https://soundcloud.com/flipcoder" title="flipcoder" target="_blank" style="color: #cccccc; text-decoration: none;">flipcoder</a> · <a href="https://soundcloud.com/flipcoder/sets/favs" title="My Best" target="_blank" style="color: #cccccc; text-decoration: none;">My Best</a>
+                    </div>
+                    <p>See more of my music on <a href="https://soundcloud.com/flipcoder" target="_blank" style="color: #ff5500; text-decoration: none; font-weight: bold;">SoundCloud</a>.</p>
                 </div>
-        </div>
+            </div>
 
-            <!-- Blog Section -->
-            <div id="blog" class="content-section">
-                <h1><i class="fas fa-pen"></i>Blog</h1>
+            <!-- Writings Section -->
+            <div id="writings" class="content-section">
+                <h1><i class="fas fa-pen"></i>Writings</h1>
                 <div class="card">
-                    <h3>Latest Post</h3>
-                    <p>Nothing here yet!  Check back soon!</p>
+                    <p>Nothing here yet! Check back soon!</p>
                 </div>
             </div>
 
@@ -1584,8 +1750,8 @@ document.querySelectorAll('.nav-links a, .site-logo').forEach(link => {
         e.preventDefault();
         const sectionId = link.getAttribute('data-section');
         window.location.hash = sectionId;  // This will trigger the hashchange event
-            });
-        });
+    });
+});
 
 // Listen for hash changes (browser back/forward)
 window.addEventListener('hashchange', handleRoute);
@@ -1598,14 +1764,6 @@ window.addEventListener('load', () => {
         document.querySelector('.nav-links a[data-section="projects"]').classList.add('active');
     }
 });
-
-// Remove the duplicate event listener block below
-// document.querySelectorAll('.nav-links a, .site-logo').forEach(link => { ... });
-
-// Remove this line as it's now handled in the load event
-// document.querySelector('.nav-links a[data-section="projects"]').classList.add('active');
-
-// ... rest of your JavaScript code ...
 
 // Set the current year in the copyright notice
 const currentYear = new Date().getFullYear();
