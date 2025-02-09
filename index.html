@@ -1,54 +1,1681 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="css/index.css">
-    <link rel="stylesheet" type="text/css" href="pkg/semantic-ui/semantic.min.css">
-    <script src="pkg/jquery/jquery.min.js"></script>
-    <script src="pkg/semantic-ui/semantic.min.js"></script>
-    <title>flipcoder</title>
-  </head>
-  <body>
-    <br>
-    <div class="ui container center aligned"><img class="ghost" src="img/flipcoder.png">
-      <h2>flipcoder &nbsp;&nbsp;/&nbsp;&nbsp; Grady O'Connell<h2>
-      <h3>Programmer and Musician from California</h3>
-      <h3><a href="mailto:flipcoder@gmail.com">📧 Contact Me</a>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flipcoder.com | Grady O'Connell's Software and Music Portfolio</title>
+    <!-- Include animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <!-- Optional: Include jQuery for dynamic animations -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Include animate.css JavaScript plugin -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.js"></script>
+    <!-- Add Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+    <!-- Add Inter font to the Google Fonts link in head -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Orbitron:wght@500&display=swap" rel="stylesheet">
+    <!-- Add Font Awesome in the head section -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Add Comic Neue font -->
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400&display=swap" rel="stylesheet">
+    <!-- Add Patrick Hand font -->
+    <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+    <!-- Add Roboto font -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            padding: 10px;
+            font-family: 'Inter', sans-serif;  /* Changed from Arial */
+            background-color: #0a0a2a;  /* Dark blue background */
+            min-height: 100vh;
+            overflow-x: hidden;
+            font-weight: 400;
+            letter-spacing: -0.01em;
+        }
+
+        /* Update star layers for true parallax */
+        .stars {
+            position: fixed;
+            top: -10%;         /* Reduced from -20% */
+            left: -10%;        /* Reduced from -20% */
+            width: 120%;       /* Reduced from 140% */
+            height: 120%;      /* Reduced from 140% */
+            pointer-events: none;
+            z-index: -1;
+            transform-style: preserve-3d;
+            perspective: 2000px;
+        }
+
+        .stars::before,
+        .stars::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            transition: transform 0.2s ease-out;
+        }
+
+        .stars::before {
+            background: 
+                /* Larger Planets */
+                radial-gradient(8px 8px at 150px 150px, rgba(255, 223, 188, 0.9), rgba(255, 223, 188, 0) 100%),
+                radial-gradient(12px 12px at 400px 200px, rgba(176, 224, 230, 0.9), rgba(176, 224, 230, 0) 100%),
+                radial-gradient(15px 15px at 600px 300px, rgba(255, 182, 193, 0.9), rgba(255, 182, 193, 0) 100%),
+                radial-gradient(10px 10px at 250px 400px, rgba(144, 238, 144, 0.9), rgba(144, 238, 144, 0) 100%),
+                /* Bright stars */
+                radial-gradient(2px 2px at 20px 30px, rgba(255, 255, 255, 1), rgba(0,0,0,0)),
+                radial-gradient(2.5px 2.5px at 40px 70px, rgba(255, 255, 255, 0.9), rgba(0,0,0,0)),
+                radial-gradient(1.5px 1.5px at 50px 160px, rgba(255, 255, 255, 0.8), rgba(0,0,0,0)),
+                radial-gradient(3px 3px at 90px 40px, rgba(255, 255, 255, 1), rgba(0,0,0,0)),
+                /* Medium stars */
+                radial-gradient(2px 2px at 130px 80px, rgba(255, 255, 255, 0.7), rgba(0,0,0,0)),
+                radial-gradient(1.5px 1.5px at 160px 120px, rgba(255, 255, 255, 0.6), rgba(0,0,0,0)),
+                radial-gradient(2.5px 2.5px at 170px 90px, rgba(255, 255, 255, 0.8), rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 200px 180px, rgba(255, 255, 255, 0.7), rgba(0,0,0,0)),
+                /* Additional bright stars */
+                radial-gradient(3px 3px at 220px 60px, rgba(255, 255, 255, 0.9), rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 240px 140px, rgba(255, 255, 255, 0.8), rgba(0,0,0,0)),
+                /* More stars with varying brightness */
+                radial-gradient(1px 1px at 260px 200px, rgba(255, 255, 255, 0.5), rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 280px 220px, rgba(255, 255, 255, 0.7), rgba(0,0,0,0)),
+                radial-gradient(1.5px 1.5px at 300px 180px, rgba(255, 255, 255, 0.6), rgba(0,0,0,0)),
+                radial-gradient(2.5px 2.5px at 320px 160px, rgba(255, 255, 255, 0.9), rgba(0,0,0,0)),
+                radial-gradient(1px 1px at 340px 140px, rgba(255, 255, 255, 0.4), rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 360px 120px, rgba(255, 255, 255, 0.8), rgba(0,0,0,0));
+            background-repeat: repeat;
+            background-size: 800px 800px;  /* Increased to accommodate planets */
+            animation: stars 60s linear infinite;  /* Slowed down for planets */
+            transform: 
+                translateZ(-200px)
+                translate(calc(var(--front-x, 0px) * -1.5), calc(var(--front-y, 0px) * -1.5));
+        }
+
+        .stars::after {
+            background:
+                /* Distant planets */
+                radial-gradient(6px 6px at 300px 300px, rgba(221, 160, 221, 0.8), rgba(221, 160, 221, 0) 100%),
+                radial-gradient(8px 8px at 100px 400px, rgba(255, 218, 185, 0.8), rgba(255, 218, 185, 0) 100%),
+                radial-gradient(10px 10px at 500px 200px, rgba(175, 238, 238, 0.8), rgba(175, 238, 238, 0) 100%),
+                /* Distant stars with varying brightness */
+                radial-gradient(1px 1px at 15px 15px, rgba(255, 255, 255, 0.8), rgba(0,0,0,0)),
+                radial-gradient(0.8px 0.8px at 45px 65px, rgba(255, 255, 255, 0.6), rgba(0,0,0,0)),
+                radial-gradient(1.2px 1.2px at 75px 155px, rgba(255, 255, 255, 0.7), rgba(0,0,0,0)),
+                radial-gradient(1.5px 1.5px at 95px 45px, rgba(255, 255, 255, 0.9), rgba(0,0,0,0)),
+                radial-gradient(0.7px 0.7px at 135px 85px, rgba(255, 255, 255, 0.5), rgba(0,0,0,0)),
+                radial-gradient(1.3px 1.3px at 165px 125px, rgba(255, 255, 255, 0.8), rgba(0,0,0,0)),
+                /* Additional distant stars */
+                radial-gradient(0.9px 0.9px at 185px 95px, rgba(255, 255, 255, 0.6), rgba(0,0,0,0)),
+                radial-gradient(1.1px 1.1px at 205px 175px, rgba(255, 255, 255, 0.7), rgba(0,0,0,0)),
+                radial-gradient(1.4px 1.4px at 225px 55px, rgba(255, 255, 255, 0.8), rgba(0,0,0,0)),
+                radial-gradient(0.6px 0.6px at 245px 135px, rgba(255, 255, 255, 0.4), rgba(0,0,0,0)),
+                /* Even more distant stars */
+                radial-gradient(0.8px 0.8px at 265px 195px, rgba(255, 255, 255, 0.5), rgba(0,0,0,0)),
+                radial-gradient(1px 1px at 285px 215px, rgba(255, 255, 255, 0.6), rgba(0,0,0,0)),
+                radial-gradient(0.7px 0.7px at 305px 175px, rgba(255, 255, 255, 0.4), rgba(0,0,0,0)),
+                radial-gradient(1.2px 1.2px at 325px 155px, rgba(255, 255, 255, 0.7), rgba(0,0,0,0)),
+                radial-gradient(0.9px 0.9px at 345px 135px, rgba(255, 255, 255, 0.5), rgba(0,0,0,0)),
+                radial-gradient(1.1px 1.1px at 365px 115px, rgba(255, 255, 255, 0.6), rgba(0,0,0,0));
+            background-repeat: repeat;
+            background-size: 600px 600px;  /* Increased for planets */
+            animation: stars 90s linear infinite;  /* Slowed down more for distant planets */
+            transform: 
+                translateZ(-400px)
+                translate(calc(var(--back-x, 0px) * -2.5), calc(var(--back-y, 0px) * -2.5));
+        }
+
+        @keyframes stars {
+            from {
+                transform: translateY(0);
+            }
+            to {
+                transform: translateY(-50%);
+            }
+        }
+
+        /* Update page wrapper for more subtle background */
+        .page-wrapper {
+            max-width: 1000px;
+            margin: 10px auto;
+            padding: 20px;
+            background-color: rgba(240, 240, 240, 0.2);
+            background-image: 
+                /* Fine grain texture */
+                url('data:image/svg+xml,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noise"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="4" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%" height="100%" filter="url(%23noise)" opacity="0.12"/%3E%3C/svg%3E'),
+                /* Brushed metal effect */
+                repeating-linear-gradient(
+                    45deg,
+                    rgba(255, 255, 255, 0.1) 0px,
+                    rgba(255, 255, 255, 0.1) 1px,
+                    rgba(0, 0, 0, 0.05) 1px,
+                    rgba(0, 0, 0, 0.05) 2px
+                ),
+                /* Center darkening */
+                radial-gradient(
+                    circle at center,
+                    rgba(0, 0, 0, 0.15) 0%,
+                    rgba(0, 0, 0, 0.1) 25%,
+                    rgba(0, 0, 0, 0.05) 50%,
+                    transparent 70%
+                ),
+                /* Enhanced metallic sheen */
+                linear-gradient(
+                    135deg,
+                    rgba(255, 255, 255, 0.25) 0%,
+                    rgba(255, 255, 255, 0.1) 35%,
+                    rgba(0, 0, 0, 0.1) 70%,
+                    rgba(0, 0, 0, 0.15) 100%
+                ),
+                /* Vertical brushed effect */
+                repeating-linear-gradient(
+                    180deg,
+                    rgba(255, 255, 255, 0.05) 0px,
+                    rgba(255, 255, 255, 0.05) 1px,
+                    rgba(0, 0, 0, 0.03) 1px,
+                    rgba(0, 0, 0, 0.03) 2px
+                ),
+                /* Existing gradients */
+                radial-gradient(circle at 10% 20%, rgba(30, 30, 35, 0.1) 0%, transparent 35%),
+                radial-gradient(circle at 85% 30%, rgba(40, 40, 45, 0.08) 0%, transparent 45%),
+                radial-gradient(circle at 30% 60%, rgba(25, 25, 30, 0.1) 0%, transparent 40%),
+                radial-gradient(circle at 70% 80%, rgba(35, 35, 40, 0.08) 0%, transparent 50%);
+            background-size: 
+                200px 200px,
+                4px 4px,
+                100% 100%,
+                100% 100%,
+                3px 3px,
+                100% 100%,
+                100% 100%,
+                100% 100%,
+                100% 100%;
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 
+                0 0 30px rgba(0, 0, 0, 0.2),
+                0 20px 60px rgba(0, 0, 0, 0.1),
+                inset 0 0 50px rgba(0, 0, 0, 0.05),
+                inset 0 0 1px rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(1px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        /* Update nebula glow effect */
+        .page-wrapper::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 40% 40%, rgba(50, 50, 55, 0.05) 0%, transparent 70%),
+                radial-gradient(circle at 60% 60%, rgba(45, 45, 50, 0.08) 0%, transparent 60%);
+            pointer-events: none;
+            mix-blend-mode: multiply;
+            z-index: 1;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 
+                inset 0 0 2px rgba(255, 255, 255, 0.2),
+                0 0 1px rgba(255, 255, 255, 0.1);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 5px auto;
+            position: relative;
+            padding: 0 15px;
+        }
+
+        /* Enhanced 3D navbar styles */
+        .navbar {
+            display: grid;
+            grid-template-columns: 150px 1fr 140px;
+            align-items: center;
+            padding: 15px 20px;
+            background: linear-gradient(to bottom, #ffffff, #f0f0f0);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 
+                0 4px 15px rgba(0, 0, 0, 0.2),
+                0 10px 30px rgba(0, 0, 0, 0.15),
+                0 20px 40px rgba(0, 0, 0, 0.1),
+                0 30px 60px rgba(0, 0, 0, 0.05),
+                inset 0 2px 4px rgba(255, 255, 255, 1),
+                inset 0 -3px 4px rgba(0, 0, 0, 0.15);  /* Enhanced shadows */
+            transform: perspective(1000px) rotateX(8deg) translateZ(30px);  /* Increased rotation and Z translation */
+            transform-origin: top;
+            border-radius: 10px;
+            margin-bottom: 25px;  /* Reduced margin to accommodate larger shadow */
+            transition: transform 0.3s ease;
+            background-image: linear-gradient(
+                to bottom,
+                rgba(255, 255, 255, 0.9) 0%,
+                rgba(255, 255, 255, 0.7) 50%,
+                rgba(240, 240, 240, 0.8) 100%
+            );
+        }
+
+        .navbar:hover {
+            transform: perspective(1000px) rotateX(6deg) translateZ(40px) translateY(-3px);  /* Enhanced hover effect */
+            box-shadow: 
+                0 6px 20px rgba(0, 0, 0, 0.2),
+                0 15px 40px rgba(0, 0, 0, 0.15),
+                0 25px 50px rgba(0, 0, 0, 0.1),
+                0 35px 70px rgba(0, 0, 0, 0.05),
+                inset 0 2px 4px rgba(255, 255, 255, 1),
+                inset 0 -3px 4px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Enhanced inner shadow */
+        .navbar::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            box-shadow: 
+                inset 0 1px 3px rgba(255, 255, 255, 0.9),
+                inset 0 -2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            background: linear-gradient(
+                to bottom,
+                rgba(255, 255, 255, 0.2) 0%,
+                rgba(255, 255, 255, 0.1) 50%,
+                transparent 100%
+            );
+            pointer-events: none;
+        }
+
+        /* Enhanced edge highlight */
+        .navbar::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;  /* Increased height */
+            background: linear-gradient(
+                to right,
+                transparent 0%,
+                rgba(255, 255, 255, 0.9) 20%,  /* Brighter highlight */
+                rgba(255, 255, 255, 0.9) 80%,
+                transparent 100%
+            );
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        /* Enhanced 3D globe effect for site logo with darker shadows */
+        .site-logo {
+            display: flex;
+            align-items: center;
+            height: 40px;
+            width: 40px;
+            transition: all 0.3s ease;
+            position: relative;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+            border: 1px solid rgba(0, 0, 0, 0.3);  /* Reduced border */
+            border-radius: 50%;  /* Make it circular */
+            padding: 2px;  /* Add padding for spacing */
+            box-shadow: 
+                inset 0 2px 5px rgba(0, 0, 0, 0.2),  /* Inner shadow for engraved effect */
+                0 2px 5px rgba(0, 0, 0, 0.1);  /* Subtle outer shadow */
+        }
+
+        .site-logo img {
+            height: 100%;
+            width: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            transform: translateZ(10px);
+            box-shadow: 
+                0 4px 10px rgba(0, 0, 0, 0.15);  /* Reduced shadow for subtlety */
+            filter: brightness(1.05);
+        }
+
+        /* Add glossy overlay */
+        .site-logo::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 50%;
+            background: linear-gradient(
+                135deg,
+                rgba(255, 255, 255, 0.4) 0%,
+                transparent 50%,
+                rgba(0, 0, 0, 0.1) 100%
+            );
+            transform: translateZ(12px);
+            pointer-events: none;
+        }
+
+        /* Add sphere effect */
+        .site-logo::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            border-radius: 50%;
+            background: radial-gradient(
+                circle at 30% 30%,
+                rgba(255, 255, 255, 0.4) 0%,
+                rgba(255, 255, 255, 0.1) 40%,
+                rgba(0, 0, 0, 0.1) 100%
+            );
+            box-shadow:
+                inset 2px 2px 4px rgba(255, 255, 255, 0.5),
+                inset -2px -2px 4px rgba(0, 0, 0, 0.1),
+                0 0 10px rgba(255, 255, 255, 0.2);
+            transform: translateZ(8px);
+            pointer-events: none;
+        }
+
+        .site-logo:hover {
+            transform: scale(1.1) translateZ(20px) rotateX(10deg) rotateY(10deg);
+        }
+
+        .site-logo:hover img {
+            box-shadow: 
+                0 12px 35px rgba(0, 0, 0, 0.4),
+                0 20px 50px rgba(0, 0, 0, 0.3),
+                0 6px 15px rgba(0, 0, 0, 0.25),
+                inset 0 2px 3px rgba(255, 255, 255, 0.9),
+                inset 0 -2px 3px rgba(0, 0, 0, 0.4);
+            filter: brightness(1.08) drop-shadow(0 8px 16px rgba(0, 0, 0, 0.35));
+        }
+
+        .nav-links {
+            margin: 0;
+            justify-content: center;
+            display: flex;
+            gap: 20px;
+            list-style-type: none;
+            padding: 0;
+        }
+
+        /* Update nav separators */
+        .nav-links li:not(:last-child)::after {
+            content: '';  /* Changed from '|' to empty content */
+            position: absolute;
+            right: -10px;
+            top: 20%;
+            height: 60%;  /* Taller separator */
+            width: 1px;
+            background: linear-gradient(
+                to bottom,
+                transparent,
+                rgba(0, 0, 0, 0.1) 20%,
+                rgba(0, 0, 0, 0.1) 80%,
+                transparent
+            );
+        }
+
+        .nav-links li {
+            position: relative;
+            padding: 0 10px;
+        }
+
+        /* Update nav link styles for active state */
+        .nav-links a {
+            color: #333;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            letter-spacing: -0.01em;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            padding: 8px 12px;
+            border-radius: 6px;
+            display: inline-block;
+            position: relative;
+            background: linear-gradient(
+                to bottom,
+                rgba(255, 255, 255, 0.3),
+                rgba(255, 255, 255, 0.1)
+            );
+            box-shadow: 
+                0 3px 6px rgba(0, 0, 0, 0.08),
+                0 2px 4px rgba(0, 0, 0, 0.12),
+                inset 0 1px 2px rgba(255, 255, 255, 0.6),
+                inset 0 -1px 1px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Update active nav link styles */
+        .nav-links a.active {
+            background: linear-gradient(
+                to bottom,
+                rgba(0, 0, 0, 0.05),
+                rgba(0, 0, 0, 0.08)
+            );
+            box-shadow: 
+                inset 0 2px 4px rgba(0, 0, 0, 0.15),
+                inset 0 1px 3px rgba(0, 0, 0, 0.1),
+                inset 1px 0 2px rgba(0, 0, 0, 0.05),
+                inset -1px 0 2px rgba(0, 0, 0, 0.05);
+            transform: translateY(2px);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            color: #111;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+        }
+
+        .nav-links a.active:hover {
+            transform: translateY(2px) scale(1.02);
+            background: linear-gradient(
+                to bottom,
+                rgba(0, 0, 0, 0.06),
+                rgba(0, 0, 0, 0.09)
+            );
+            box-shadow: 
+                inset 0 2px 4px rgba(0, 0, 0, 0.15),
+                inset 0 1px 3px rgba(0, 0, 0, 0.1),
+                inset 1px 0 2px rgba(0, 0, 0, 0.05),
+                inset -1px 0 2px rgba(0, 0, 0, 0.05);
+        }
+
+        .nav-links a:hover {
+            background: linear-gradient(
+                to bottom,
+                rgba(255, 255, 255, 0.4),
+                rgba(255, 255, 255, 0.2)
+            );
+            transform: translateY(-1px) scale(1.05);
+            box-shadow: 
+                0 5px 10px rgba(0, 0, 0, 0.1),
+                0 3px 6px rgba(0, 0, 0, 0.15),
+                inset 0 1px 2px rgba(255, 255, 255, 0.8),
+                inset 0 -1px 1px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+
+        /* Centered PFP Image */
+        .animate__animated.animate__fadeIn {
+            text-align: center;
+            width: 100%;
+            margin: 10px auto;
+        }
+
+        /* Enhanced 3D styles for pfp */
+        .pfp-container {
+            display: inline-block;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.1s ease-out;
+            padding: 20px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, 
+                rgba(255, 255, 255, 0.4) 0%,
+                rgba(240, 240, 240, 0.2) 50%,
+                rgba(230, 230, 230, 0.1) 100%);
+            backdrop-filter: blur(2px);
+            perspective: 1000px;
+            box-shadow: 
+                0 10px 30px rgba(0, 0, 0, 0.2),
+                0 5px 15px rgba(0, 0, 0, 0.1);
+            z-index: 2;  /* Ensure it's above the halo */
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        /* Update styles for the profile picture to look like a larger 3D bubble with shine */
+        .pfp {
+            width: 120px;  /* Increased width */
+            height: 120px;  /* Increased height */
+            border-radius: 50%;  /* Make it circular */
+            object-fit: cover;  /* Ensure the image covers the area */
+            box-shadow: 
+                0 10px 25px rgba(0, 0, 0, 0.3),  /* Outer shadow */
+                inset 0 -3px 6px rgba(255, 255, 255, 0.5),  /* Inner highlight */
+                inset 0 3px 6px rgba(0, 0, 0, 0.1);  /* Inner shadow */
+            transition: transform 0.3s ease;  /* Smooth transition for hover effect */
+            position: relative;  /* Position relative for pseudo-elements */
+            background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.4) 60%, rgba(255, 255, 255, 0) 100%);  /* Glossy effect */
+            filter: brightness(0.9) grayscale(0.1);  /* Slightly darken and add gray */
+        }
+
+        /* Add a glossy effect using a pseudo-element */
+        .pfp::after {
+            content: '';
+            position: absolute;
+            top: 10%;  /* Position the highlight */
+            left: 10%;  /* Position the highlight */
+            width: 80%;  /* Size of the highlight */
+            height: 80%;  /* Size of the highlight */
+            border-radius: 50%;  /* Make it circular */
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0) 70%);  /* Glossy effect */
+            pointer-events: none;  /* Prevent interaction */
+            opacity: 0.7;  /* Slightly transparent */
+            box-shadow: 
+                0 0 10px rgba(255, 255, 255, 0.5),  /* Soft glow */
+                0 0 20px rgba(255, 255, 255, 0.3);  /* Outer glow */
+        }
+
+        /* Add hover effect to the PFP */
+        .pfp:hover {
+            transform: scale(1.1);  /* Slightly enlarge on hover */
+            box-shadow: 
+                0 15px 35px rgba(0, 0, 0, 0.4),  /* Enhanced shadow on hover */
+                inset 0 -3px 6px rgba(255, 255, 255, 0.7),  /* Brighter inner highlight */
+                inset 0 3px 6px rgba(0, 0, 0, 0.2);  /* Darker inner shadow */
+        }
+
+        /* Add a 3D effect with a gradient */
+        .pfp {
+            background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.5) 60%, rgba(255, 255, 255, 0) 100%);
+        }
+
+        .pfp::before {
+            content: '';
+            position: absolute;
+            top: -6px;
+            left: -6px;
+            right: -6px;
+            bottom: -6px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.4) 0%,
+                transparent 50%,
+                rgba(0, 0, 0, 0.1) 100%);
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .pfp::after {
+            content: '';
+            position: absolute;
+            top: -3px;
+            left: -3px;
+            right: -3px;
+            bottom: -3px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, 
+                transparent 0%,
+                rgba(255, 255, 255, 0.1) 50%,
+                transparent 100%);
+            z-index: 3;
+            pointer-events: none;
+        }
+
+        /* Update dark halo around pfp */
+        .pfp-container::before {
+            content: '';
+            position: absolute;
+            top: -50px;    /* Increased from -30px */
+            left: -50px;   /* Increased from -30px */
+            right: -50px;  /* Increased from -30px */
+            bottom: -50px; /* Increased from -30px */
+            background: radial-gradient(
+                circle at center,
+                transparent 30%,              /* Starts transparent sooner */
+                rgba(0, 0, 0, 0.1) 50%,      /* Much lighter */
+                rgba(0, 0, 0, 0.15) 65%,     /* Much lighter */
+                rgba(0, 0, 0, 0.2) 80%,      /* Much lighter */
+                rgba(0, 0, 0, 0.25) 100%     /* Much lighter */
+            );
+            border-radius: 50%;
+            z-index: -1;
+            pointer-events: none;
+            filter: blur(15px);  /* Increased blur */
+        }
+
+        /* Move existing shadow effect to new pseudo-element */
+        .pfp-container .shadow-effect {
+            content: '';
+            position: absolute;
+            width: 90%;
+            height: 20px;
+            bottom: -20px;
+            left: 5%;
+            background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.3) 0%, transparent 70%);
+            transform: translateZ(-30px) rotateX(60deg);
+            filter: blur(8px);
+            z-index: -2;
+        }
+
+        /* Add animated gradient overlay */
+        .pfp-container::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 50%;
+            background: radial-gradient(circle at var(--mouse-x, 30%) var(--mouse-y, 30%),
+                rgba(255, 182, 193, 0.2),    /* Light pink */
+                rgba(173, 216, 230, 0.2),    /* Light blue */
+                rgba(144, 238, 144, 0.2),    /* Light green */
+                rgba(221, 160, 221, 0.2)     /* Plum */
+            );
+            mix-blend-mode: color;
+            pointer-events: none;
+            z-index: 3;
+            animation: gradientShift 8s infinite linear;
+            opacity: 0.6;
+        }
+
+        @keyframes gradientShift {
+            0% {
+                filter: hue-rotate(0deg);
+            }
+            100% {
+                filter: hue-rotate(360deg);
+            }
+        }
+
+        /* Update main content with enhanced texture */
+        .main-content {
+            background: linear-gradient(to bottom, #ffffff, #f8f8f8);
+            padding: 30px;
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+            min-height: 300px;
+            transform: perspective(2000px) rotateX(2deg) translateZ(10px);
+            transform-origin: top;
+            box-shadow: 
+                0 10px 30px rgba(0, 0, 0, 0.15),
+                0 20px 60px rgba(0, 0, 0, 0.1),
+                inset 0 1px 3px rgba(255, 255, 255, 1),
+                inset 0 -2px 4px rgba(0, 0, 0, 0.1);
+            background-image: 
+                /* Enhanced noise texture */
+                url('data:image/svg+xml,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noise"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="5" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%" height="100%" filter="url(%23noise)" opacity="0.25"/%3E%3C/svg%3E'),
+                /* Stronger diagonal cracks */
+                repeating-linear-gradient(
+                    45deg,
+                    transparent 0px,
+                    transparent 2px,
+                    rgba(0, 0, 0, 0.06) 2px,
+                    transparent 3px,
+                    transparent 8px
+                ),
+                repeating-linear-gradient(
+                    -45deg,
+                    transparent 0px,
+                    transparent 2px,
+                    rgba(0, 0, 0, 0.06) 2px,
+                    transparent 3px,
+                    transparent 10px
+                ),
+                /* Enhanced horizontal scratches */
+                repeating-linear-gradient(
+                    90deg,
+                    transparent 0px,
+                    transparent 1px,
+                    rgba(0, 0, 0, 0.04) 1px,
+                    transparent 2px,
+                    transparent 10px
+                ),
+                /* Enhanced vertical wear marks */
+                repeating-linear-gradient(
+                    180deg,
+                    rgba(0, 0, 0, 0.02) 0px,
+                    rgba(0, 0, 0, 0.02) 1px,
+                    transparent 1px,
+                    transparent 3px
+                ),
+                /* Larger random spots */
+                radial-gradient(circle at 20% 30%, rgba(0, 0, 0, 0.08) 0%, transparent 8%),
+                radial-gradient(circle at 70% 60%, rgba(0, 0, 0, 0.07) 0%, transparent 10%),
+                radial-gradient(circle at 40% 80%, rgba(0, 0, 0, 0.06) 0%, transparent 9%),
+                /* Base gradient */
+                linear-gradient(
+                    to bottom,
+                    rgba(255, 255, 255, 0.95) 0%,
+                    rgba(255, 255, 255, 0.9) 50%,
+                    rgba(248, 248, 248, 0.85) 100%
+                );
+            background-size: 
+                200px 200px,
+                16px 16px,
+                12px 12px,
+                20px 20px,
+                6px 6px,
+                100% 100%,
+                100% 100%,
+                100% 100%,
+                100% 100%;
+            border: 1px solid rgba(255, 255, 255, 0.7);
+        }
+
+        /* Add more detailed scratches */
+        .main-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                /* Deep scratches */
+                linear-gradient(
+                    85deg,
+                    transparent 0%,
+                    transparent 45%,
+                    rgba(0, 0, 0, 0.03) 45.5%,
+                    transparent 46%,
+                    transparent 55%,
+                    rgba(0, 0, 0, 0.03) 55.5%,
+                    transparent 56%,
+                    transparent 100%
+                ),
+                /* Fine scratches */
+                linear-gradient(
+                    -75deg,
+                    transparent 0%,
+                    transparent 48%,
+                    rgba(0, 0, 0, 0.02) 48.5%,
+                    transparent 49%,
+                    transparent 51%,
+                    rgba(0, 0, 0, 0.02) 51.5%,
+                    transparent 52%,
+                    transparent 100%
+                ),
+                /* Random wear marks */
+                radial-gradient(
+                    circle at 50% 50%,
+                    rgba(0, 0, 0, 0.02) 0%,
+                    transparent 50%
+                );
+            background-size: 300px 300px, 200px 200px, 400px 400px;
+            opacity: 0.8;
+            pointer-events: none;
+        }
+
+        /* Enhanced 3D cards */
+        .card {
+            background: linear-gradient(to bottom, #ffffff, #fafafa);
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 25px;
+            position: relative;
+            overflow: hidden;
+            transform: perspective(1000px) translateZ(5px);
+            box-shadow: 
+                0 5px 15px rgba(0, 0, 0, 0.1),
+                0 10px 30px rgba(0, 0, 0, 0.05),
+                inset 0 1px 2px rgba(255, 255, 255, 0.9),
+                inset 0 -1px 2px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            font-size: 15px;
+            line-height: 1.5;
+        }
+
+        .card:hover {
+            transform: perspective(1000px) translateZ(10px) translateY(-2px);
+            box-shadow: 
+                0 8px 20px rgba(0, 0, 0, 0.12),
+                0 15px 40px rgba(0, 0, 0, 0.08),
+                inset 0 1px 2px rgba(255, 255, 255, 0.9),
+                inset 0 -1px 2px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Add edge highlight to cards */
+        .card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(
+                to right,
+                transparent 0%,
+                rgba(255, 255, 255, 0.8) 20%,
+                rgba(255, 255, 255, 0.8) 80%,
+                transparent 100%
+            );
+            pointer-events: none;
+        }
+
+        /* Remove old animation keyframes and classes */
+        .animate-container {
+                opacity: 1;
+        }
+
+        .content-section {
+            display: none;
+            position: relative;  /* Changed from absolute */
+            width: 100%;
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        /* Update social links styles */
+        .social-links {
+            display: flex;
+            gap: 12px;
+            justify-content: flex-end;
+            align-items: center;
+            margin-right: 10px;
+        }
+
+        .social-links a {
+            color: #666;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            padding: 4px;
+            text-decoration: none;
+            box-shadow: none;
+        }
+
+        .social-links a:hover {
+            color: #333;
+            transform: translateY(-2px);
+            text-decoration: none;
+        }
+
+        .social-links i, .social-links span {
+            font-size: 16px;
+            text-shadow: none;
+        }
+
+        /* Add eye styles */
+        .pfp-container {
+            position: relative;
+        }
+
+        .eye-left, .eye-right {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: radial-gradient(circle at 35% 35%, 
+                rgba(0, 0, 0, 0.7) 0%,
+                rgba(0, 0, 0, 0.8) 50%,
+                rgba(0, 0, 0, 0.9) 100%);  /* Darker gradient */
+            border-radius: 50%;
+            z-index: 2;
+            transition: all 0.1s ease;
+            box-shadow: 
+                inset -1px -1px 1px rgba(0, 0, 0, 0.6),
+                inset 1px 1px 1px rgba(0, 0, 0, 0.4);  /* Darker shadow */
+        }
+
+        .eye-socket-left, .eye-socket-right {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: radial-gradient(circle at 40% 40%,
+                rgba(255, 255, 255, 0.8) 0%,
+                rgba(255, 255, 255, 0.6) 100%);  /* More opaque */
+            border-radius: 50%;
+            z-index: 1;
+            box-shadow: 
+                inset 0 0 2px rgba(0, 0, 0, 0.3),
+                0 0 2px rgba(255, 255, 255, 0.3);  /* Enhanced shadow */
+        }
+
+        .eye-left, .eye-socket-left {
+            top: 41%;    /* Moved down from 40% */
+            left: 37%;   /* Same horizontal position */
+        }
+
+        .eye-right, .eye-socket-right {
+            top: 40%;    /* Moved up from 41% */
+            right: 49%;  /* Moved left from 48% */
+        }
+
+        /* Update section header styles to match navbar closely */
+        h1 {
+            position: relative;
+            padding: 8px 30px;  /* Adjusted padding for compactness */
+            margin: 10px auto 15px auto;  /* Reduced bottom margin */
+            background: linear-gradient(to bottom,
+                rgba(240, 240, 240, 0.9) 0%,  /* Light gray */
+                rgba(200, 200, 200, 0.8) 50%,  /* Medium gray */
+                rgba(160, 160, 160, 0.7) 100%  /* Dark gray */
+            );
+            border-radius: 15px;  /* Adjusted border radius */
+            box-shadow:
+                0 4px 10px rgba(0, 0, 0, 0.2),
+                0 8px 20px rgba(0, 0, 0, 0.15);
+            font-family: 'Inter', sans-serif;
+            letter-spacing: -0.01em;
+            text-align: center;
+            font-size: 18px;  /* Reduced font size */
+            font-weight: 600;
+            max-width: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;  /* Adjusted gap */
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            transform: perspective(1000px) translateY(-5px) translateZ(20px) rotateX(2deg);
+            transition: all 0.3s ease;
+            text-shadow: 
+                0 1px 1px rgba(255, 255, 255, 1),
+                0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        h1:hover {
+            transform: perspective(1000px) translateY(-6px) translateZ(30px) rotateX(4deg);
+            box-shadow:
+                0 10px 20px rgba(0, 0, 0, 0.25),
+                0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 i {
+            font-size: 18px;  /* Adjusted icon size */
+            opacity: 0.9;
+            filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.2));
+        }
+
+        /* Add screwhead styles */
+        h1::before, h1::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: linear-gradient(135deg,
+                rgba(200, 200, 200, 1) 0%,
+                rgba(160, 160, 160, 1) 50%,
+                rgba(140, 140, 140, 1) 100%
+            );
+            border-radius: 50%;
+            box-shadow:
+                inset 0 2px 4px rgba(0, 0, 0, 0.2),
+                inset 0 -2px 4px rgba(255, 255, 255, 0.8),
+                0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Left screwhead */
+        h1::before {
+            left: 15px;
+            background-image: 
+                linear-gradient(135deg,
+                    rgba(200, 200, 200, 1) 0%,
+                    rgba(160, 160, 160, 1) 50%,
+                    rgba(140, 140, 140, 1) 100%
+                ),
+                linear-gradient(45deg, transparent 47%, rgba(0, 0, 0, 0.1) 48%, rgba(0, 0, 0, 0.1) 52%, transparent 53%),
+                linear-gradient(135deg, transparent 47%, rgba(0, 0, 0, 0.1) 48%, rgba(0, 0, 0, 0.1) 52%, transparent 53%);
+        }
+
+        /* Right screwhead */
+        h1::after {
+            right: 15px;
+            background-image: 
+                linear-gradient(135deg,
+                    rgba(200, 200, 200, 1) 0%,
+                    rgba(160, 160, 160, 1) 50%,
+                    rgba(140, 140, 140, 1) 100%
+                ),
+                linear-gradient(45deg, transparent 47%, rgba(0, 0, 0, 0.1) 48%, rgba(0, 0, 0, 0.1) 52%, transparent 53%),
+                linear-gradient(135deg, transparent 47%, rgba(0, 0, 0, 0.1) 48%, rgba(0, 0, 0, 0.1) 52%, transparent 53%);
+        }
+
+        /* Add hover effect for screwheads */
+        h1:hover::before {
+            transform: translateY(-50%) rotate(-180deg);
+            transition: transform 0.5s ease;
+        }
+
+        h1:hover::after {
+            transform: translateY(-50%) rotate(180deg);
+            transition: transform 0.5s ease;
+        }
+
+        /* Keep other headings left-aligned */
+        h2, h3 {
+            position: relative;
+            padding: 10px 20px;
+            margin: 15px -20px;
+            background: linear-gradient(to right,
+                rgba(255, 255, 255, 0.9),
+                rgba(255, 255, 255, 0.7) 50%,
+                rgba(255, 255, 255, 0.9)
+            );
+            border-radius: 4px;
+            box-shadow:
+                inset 0 1px 3px rgba(255, 255, 255, 0.9),
+                inset 0 -1px 2px rgba(0, 0, 0, 0.05),
+                0 1px 3px rgba(0, 0, 0, 0.1);
+            font-family: 'Inter', sans-serif;
+            letter-spacing: -0.02em;
+            text-align: left;  /* Keep other headers left-aligned */
+        }
+
+        /* Add glossy border effect */
+        .page-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 15px;
+            background: linear-gradient(135deg,
+                rgba(255, 255, 255, 0.2) 0%,
+                transparent 50%,
+                rgba(255, 255, 255, 0.1) 100%
+            );
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        /* Update eye styles for blinking */
+        @keyframes blink {
+            0%, 100% { 
+                height: 4px;
+                width: 4px;
+                transform: translateY(0);
+                border-radius: 50%;
+                background: radial-gradient(circle at 35% 35%, 
+                    rgba(0, 0, 0, 0.7) 0%,
+                    rgba(0, 0, 0, 0.8) 50%,
+                    rgba(0, 0, 0, 0.9) 100%);
+            }
+            45%, 55% { 
+                height: 2px;
+                width: 6px;  /* Make the dash wider */
+                transform: translateY(1.5px);
+                border-radius: 1px;
+                background: rgba(0, 0, 0, 0.9);  /* Solid color for the dash */
+            }
+        }
+
+        .eye-left.blinking, .eye-right.blinking {
+            animation: blink 0.15s ease-in-out;  /* Keep the fast blink */
+        }
+
+        /* Update global font styles */
+        body {
+            margin: 0;
+            padding: 10px;
+            font-family: 'Inter', sans-serif;  /* Changed from Arial */
+            background-color: #0a0a2a;
+            min-height: 100vh;
+            overflow-x: hidden;
+            font-weight: 400;
+            letter-spacing: -0.01em;
+        }
+
+        /* Update heading styles */
+        h1, h2, h3 {
+            font-family: 'Inter', sans-serif;
+            letter-spacing: -0.02em;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        h3 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        /* Update card text styles */
+        .card {
+            /* ... existing styles ... */
+            font-size: 15px;
+            line-height: 1.5;
+        }
+
+        .card p {
+            font-weight: 400;
+            color: #444;
+        }
+
+        /* Update link styles */
+        a {
+            font-family: 'Inter', sans-serif;
+            letter-spacing: -0.01em;
+        }
+
+        /* Update project image styles with stronger shadows */
+        .project-image {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            border-radius: 20px;
+            display: block;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            margin: 0;  /* Ensure no margin above or below the image */
+            box-shadow: 
+                0 4px 10px rgba(0, 0, 0, 0.2),  /* Subtle shadow for depth */
+                0 6px 15px rgba(0, 0, 0, 0.15);  /* Additional shadow for effect */
+        }
+
+        .project-image:hover {
+            transform: perspective(1000px) rotateX(4deg) translateZ(50px) scale(1.02);
+            box-shadow: 
+                0 25px 50px rgba(0, 0, 0, 0.3),
+                0 20px 40px rgba(0, 0, 0, 0.25),
+                0 15px 25px rgba(0, 0, 0, 0.2),
+                inset 0 3px 4px rgba(255, 255, 255, 0.9),
+                inset 0 -3px 4px rgba(0, 0, 0, 0.3);
+            filter: brightness(1.08) drop-shadow(0 15px 30px rgba(0, 0, 0, 0.2));
+            border-color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* Add beveled edge effect */
+        .project-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 20px;
+            background: linear-gradient(
+                135deg,
+                rgba(255, 255, 255, 0.4) 0%,
+                transparent 50%,
+                rgba(0, 0, 0, 0.1) 100%
+            );
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        /* Remove project card styles */
+        .project-card {
+            display: none;
+        }
+
+        /* Update nav links to accommodate icons */
+        .nav-links a {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .nav-links i {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        /* Add site title styles */
+        .site-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: rgba(255, 255, 255, 0.7);
+            text-align: center;
+            margin: 0 0 15px 0;
+            padding: 0;
+            text-shadow: 
+                0 0 10px rgba(255, 255, 255, 0.3),
+                0 0 20px rgba(255, 255, 255, 0.2);
+            transform: translateZ(20px);
+            position: relative;
+            font-weight: 500;
+        }
+
+        .site-title::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 1px;
+            background: linear-gradient(
+                to right,
+                transparent,
+                rgba(255, 255, 255, 0.5),
+                transparent
+            );
+        }
+
+        /* Add styles for project descriptions */
+        .project-description {
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+            margin: 5px 0 0 0;  /* Adjust margin to lower the caption */
+            font-style: normal;  /* Change to normal for a professional look */
+            font-family: 'Roboto', sans-serif;  /* Use the new professional font */
+            text-shadow: none;  /* Remove text shadow for a cleaner look */
+            position: relative;  /* Position relative to stack below the image */
+            width: 100%;  /* Expand to the full width of the image */
+            background: rgba(255, 255, 255, 0.8);  /* Optional background for readability */
+            padding: 5px;  /* Padding for the description */
+            border-radius: 5px;  /* Rounded corners for the description */
+            font-weight: bold;  /* Make the text bold */
+        }
+
+        /* Add styles for project containers */
+        .project-container {
+            text-align: center;  /* Center the text */
+            margin: 10px 0;  /* Reduced margin for less vertical space */
+            position: relative;  /* Position relative for potential absolute positioning */
+            display: flex;  /* Use flexbox for alignment */
+            flex-direction: column;  /* Stack children vertically */
+            align-items: center;  /* Center children horizontally */
+            padding: 0;  /* Remove padding */
+            background: rgba(255, 255, 255, 0.1);  /* Light background for shading */
+            border-radius: 10px;  /* Rounded corners */
+            /* Removed shadows */
+            /* box-shadow: 
+                0 4px 10px rgba(0, 0, 0, 0.1),  /* Subtle shadow for depth */
+                /* 0 2px 5px rgba(0, 0, 0, 0.05);  /* Additional shadow for effect */
+        }
+
+        /* Add styles for project image wrapper */
+        .project-image-wrapper {
+            position: relative;  /* Position relative for absolute positioning of description */
+            display: inline-block;  /* Allow for inline-block layout */
+            border-radius: 10px;  /* Rounded corners */
+            overflow: hidden;  /* Ensure content doesn't overflow */
+            margin-bottom: 0;  /* Remove bottom margin to move images up */
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(0, 0, 0, 0.2) 70%);  /* Gradient fading darker */
+        }
+
+        .project-image {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            border-radius: 20px;
+            display: block;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            margin: 0;  /* Ensure no margin above or below the image */
+            box-shadow: 
+                0 4px 10px rgba(0, 0, 0, 0.2),  /* Subtle shadow for depth */
+                0 6px 15px rgba(0, 0, 0, 0.15);  /* Additional shadow for effect */
+        }
+
+        .project-description {
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+            margin: 5px 0 0 0;  /* Adjust margin to lower the caption */
+            font-style: normal;  /* Change to normal for a professional look */
+            font-family: 'Roboto', sans-serif;  /* Use the new professional font */
+            text-shadow: none;  /* Remove text shadow for a cleaner look */
+            position: relative;  /* Position relative to stack below the image */
+            width: 100%;  /* Expand to the full width of the image */
+            background: rgba(255, 255, 255, 0.8);  /* Optional background for readability */
+            padding: 5px;  /* Padding for the description */
+            border-radius: 5px;  /* Rounded corners for the description */
+        }
+
+        /* Add styles for the message bubble */
+        .message-bubble {
+            position: relative;
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            padding: 10px 15px;
+            margin-left: 15px;  /* Space between PFP and bubble */
+            box-shadow: 
+                0 4px 10px rgba(0, 0, 0, 0.2),
+                0 2px 5px rgba(0, 0, 0, 0.1);
+            font-family: 'Patrick Hand', cursive;  /* Silly comic-like font */
+            font-size: 16px;  /* Slightly larger font size */
+            font-weight: bold;  /* Make the font bold */
+            color: #333;
+            max-width: 200px;  /* Limit the width of the bubble */
+            position: relative;  /* For the arrow */
+            align-self: center;  /* Center the bubble vertically */
+        }
+
+        /* Create the arrow effect */
+        .message-bubble::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: -10px;  /* Position to the left of the bubble */
+            margin-top: -7px;  /* Center the arrow vertically */
+            border-width: 10px;  /* Increased size of the arrow */
+            border-style: solid;
+            border-color: transparent rgba(255, 255, 255, 0.9) transparent transparent;  /* Arrow color flipped */
+        }
+
+        /* Create the arrow effect */
+        .message-bubble::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: -15px;  /* Position to the left of the bubble */
+            margin-top: -7px;  /* Center the arrow vertically */
+            border-width: 10px;  /* Size of the arrow */
+            border-style: solid;
+            border-color: transparent rgba(255, 255, 255, 0.9) transparent transparent;  /* Arrow color */
+        }
+
+        /* Flex container for PFP and message bubble */
+        .pfp-message-container {
+            display: flex;
+            align-items: center;  /* Center vertically */
+            justify-content: center;  /* Center horizontally */
+            margin: 20px 0;  /* Add some margin for spacing */
+        }
+
+        .footer {
+            text-align: center;  /* Center the text */
+            margin-top: 20px;  /* Space above the footer */
+            color: #fff;  /* White text color */
+            font-size: 14px;  /* Font size */
+            opacity: 0.7;  /* Slightly transparent */
+        }
+
+        .site-title a {
+            font-size: 16px;  /* Adjust size if needed */
+            transition: color 0.3s;  /* Smooth color transition */
+        }
+
+        .site-title a:hover {
+            color: #ff5500;  /* Change color on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="stars"></div>
+    <div class="page-wrapper">
+    <div class="container">
+        <div class="site-title">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span>flipcoder</span>
+                <span style="display: flex; align-items: center;">
+                    Grady O'Connell
+                    <a href="mailto:flipcoder@gmail.com" style="margin-left: 8px; color: #fff; text-decoration: none;">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </span>
+            </div>
+        </div>
+        <!-- Animated Navbar -->
+        <nav class="navbar">
+                <a href="#" class="site-logo" data-section="projects">
+                    <img src="images/pfp.jpg" alt="Profile Picture">
+                </a>
+            <ul class="nav-links">
+                    <li><a href="#" data-section="projects"><i class="fas fa-code"></i>Projects</a></li>
+                    <li><a href="#" data-section="music"><i class="fas fa-music"></i>Music</a></li>
+                    <li><a href="#" data-section="blog"><i class="fas fa-pen"></i>Blog</a></li> <!-- Blog comes before Contact -->
+                    <li><a href="#" data-section="contact"><i class="fas fa-envelope"></i>Contact</a></li> <!-- Contact comes after Blog -->
+            </ul>
+                <div class="social-links">
+                    <a href="https://github.com/flipcoder" target="_blank" title="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://twitter.com/flipcoder" target="_blank" title="X (Twitter)">
+                        <span>X</span>
+                    </a>
+                    <a href="https://soundcloud.com/flipcoder" target="_blank" title="SoundCloud">
+                        <i class="fab fa-soundcloud"></i>
+                    </a>
+                    <a href="https://youtube.com/@flipcoder" target="_blank" title="YouTube">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+        </nav>
+
+       <!-- Centered PFP Image and Message Bubble -->
+        <div class="animate__animated animate__fadeIn pfp-message-container">
+            <a href="#" class="pfp-container" data-section="projects">
+                <img src="images/pfp.jpg" alt="Profile Picture" class="pfp">
+                <div class="eye-socket-left"></div>
+                <div class="eye-socket-right"></div>
+                <div class="eye-left"></div>
+                <div class="eye-right"></div>
+            </a>
+            <!-- Message Bubble -->
+            <div class="message-bubble">
+                <p>Hi, I'm Flipcoder! I'm a software developer and musician. Welcome to my new page!</p>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Projects Section -->
+            <div id="projects" class="content-section active">
+                <h1><i class="fas fa-code"></i>Projects</h1>
+                
+                <div class="project-container">
+                    <a href="https://github.com/flipcoder/midimech" target="_blank">
+                        <div class="project-image-wrapper">
+                            <img src="images/midimech.png" alt="midimech" class="project-image">
+                            <p class="project-description">Next-gen isomorphic musical layout engine</p>
+                        </div>
+                    </a>
+            </div>
+
+                <div class="project-container">
+                    <a href="https://github.com/flipcoder/qor" target="_blank">
+                        <div class="project-image-wrapper">
+                            <img src="images/qor.png" alt="Qor Game Engine" class="project-image">
+                            <p class="project-description">C++ OpenGL game engine</p>
+                        </div>
+                    </a>
+            </div>
+
+                <div class="project-container">
+                    <a href="https://github.com/flipcoder/textbeat" target="_blank">
+                        <div class="project-image-wrapper">
+                            <img src="images/textbeat.png" alt="TextBeat" class="project-image">
+                            <p class="project-description">Text-based music sequencer and midi shell</p>
+            </div>
+                        </a>
+        </div>
+                
+                <div class="project-container">
+                    <a href="https://github.com/flipcoder/game-off-2016" target="_blank">
+                        <div class="project-image-wrapper">
+                            <img src="images/hip.png" alt="Hacking in Progress" class="project-image">
+                            <p class="project-description">GitHub Game-Off 2016 Featured Game</p>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="project-container">
+                    <a href="https://github.com/flipcoder/microarmy" target="_blank">
+                        <div class="project-image-wrapper">
+                            <img src="images/microarmy.png" alt="MicroArmy" class="project-image">
+                            <p class="project-description">Run and Gun OpenGL Platformer</p>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="project-container">
+                    <a href="https://github.com/flipcoder/siege-tools" target="_blank">
+                        <div class="project-image-wrapper">
+                            <img src="images/siegetools.png" alt="Siege Tools" class="project-image">
+                            <p class="project-description">Intelligent Build Automation System</p>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="project-container">
+                    <a href="https://github.com/flipcoder/bomberoni" target="_blank">
+                        <div class="project-image-wrapper">
+                            <img src="images/bomberoni.png" alt="Bomberoni" class="project-image">
+                            <p class="project-description">Bomberman Clone</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Music Section -->
+            <div id="music" class="content-section">
+                <h1><i class="fas fa-music"></i>Music</h1>
+                <!-- <div class="card">
+                    <h3>Latest Tracks</h3>
+                    <iframe width="100%" 
+                            height="450" 
+                            scrolling="no" 
+                            frameborder="no" 
+                            allow="autoplay" 
+                            src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/users/flipcoder&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true">
+                    </iframe>
+                </div> -->
+                <div class="card">
+                    <h3>In Progress</h3>
+                    <p>I haven't finished my music page yet!  Check out my <a href="https://soundcloud.com/flipcoder" target="_blank" style="color: #ff5500; text-decoration: none; font-weight: bold;">SoundCloud</a>!</p>
+                </div>
+        </div>
+
+            <!-- Blog Section -->
+            <div id="blog" class="content-section">
+                <h1><i class="fas fa-pen"></i>Blog</h1>
+                <div class="card">
+                    <h3>Latest Post</h3>
+                    <p>Nothing here yet!  Check back soon!</p>
+                </div>
+            </div>
+
+            <!-- Contact Section -->
+            <div id="contact" class="content-section">
+                <h1><i class="fas fa-envelope"></i>Contact</h1>
+                <div class="card">
+                    <h3>Get in Touch</h3>
+                    <p>If you have any questions or would like to collaborate, feel free to reach out!</p>
+                    <p>Email: <a href="mailto:flipcoder@gmail.com" style="color: #ff5500; text-decoration: none;">flipcoder@gmail.com</a></p>
+                </div>
+            </div>
+        </div>
     </div>
-    <br>
-    <br>
-    <div class="ui container center aligned">
-      <h2>Notable Projects</h2>
     </div>
-    <br>
-    <div class="ui container center aligned">
-      <a href="https://github.com/flipcoder/">View My GitHub</a><br><br>
+</div>
+
+<div class="footer">
+    <p id="copyright"></p>
     </div>
-    <div class="ui container center aligned">
-      <a href="https://github.com/flipcoder/midimech"><img class="projectimg" src="img/midimech.png"></a>
-      <a href="https://github.com/flipcoder/qor"><img class="projectimg" src="img/qor.png"></a>
-      <a href="https://github.com/flipcoder/textbeat"><img class="projectimg" src="img/textbeat.png"></a>
-      <a href="https://github.com/flipcoder/game-off-2016"><img class="projectimg" src="img/hip.png"></a>
-      <a href="https://github.com/flipcoder/microarmy"><img class="projectimg" src="img/microarmy.png"></a>
-      <a href="https://github.com/flipcoder/siege-tools"><img class="projectimg" src="img/siegetools.png"></a>
-      <!--<a href="https://github.com/flipcoder/bouncingship"><img class="projectimg" src="img/bouncingship.png"></a>-->
-      <a href="https://github.com/flipcoder/bomberoni"><img class="projectimg" src="img/bomberoni.png"></a>
-    </div><br>
-      <!--<div class="ui small red container"><a class="ui red label" href="https://github.com/flipcoder/FRAG.EXE">FRAG.EXE-->
-      <!--  <div class="detail">OpenGL first-person shooter w/ online play.</div></a><br><br><a class="ui grey label" href="https://github.com/flipcoder/mx">mx-->
-      <!--  <div class="detail">C++ concurrency: await, yield, channels, i/o multiplexer (experimental)</div></a><br><br><a class="ui yellow label" href="https://github.com/flipcoder/litebot">litebot-->
-      <!--  <div class="detail">IRC bot w/ plugin support and built-in card game</div></a><br><br><a class="ui pink label" href="https://github.com/flipcoder/kit">kit-->
-      <!--  <div class="detail">C++ utility library</div></a><br><br><a class="ui red label" href="https://github.com/flipcoder/qorpse">qorpse-->
-      <!--  <div class="detail">Top-down retro horror shooter.  Written in my own engine.</div></a><br><br></div>-->
-    <div class="ui container center aligned">
-      <a href="https://github.com/flipcoder/">View My GitHub</a><br><br>
-    </div>
-    <div class="ui container center aligned">
-      <h2>Music</h2>
-      Aside from programming, I also write and play music.  Here are some links to my works.<br><br>
-      <a href="https://soundcloud.com/flipcoder">Music on SoundCloud</a><br>
-      <a href="https://thujas.net">thujas Project</a><br>
-    </div>
-    <br>
-  </body>
+
+    <script>
+// Router function to handle URL changes and show appropriate content
+function handleRoute() {
+    const hash = window.location.hash.slice(1) || 'projects';  // Default to projects if no hash
+    const currentSection = document.querySelector('.content-section.active');
+    const newSection = document.getElementById(hash);
+    
+    if (!newSection) return;  // Invalid route
+    if (currentSection === newSection) return;  // Same section
+
+    // Update active nav link
+    document.querySelector('.nav-links a.active')?.classList.remove('active');
+    document.querySelector(`.nav-links a[data-section="${hash}"]`)?.classList.add('active');
+
+    // Update content section
+    currentSection?.classList.remove('active');
+    newSection.classList.add('active');
+}
+
+// Update click handlers to use hash navigation
+document.querySelectorAll('.nav-links a, .site-logo').forEach(link => {
+    link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const sectionId = link.getAttribute('data-section');
+        window.location.hash = sectionId;  // This will trigger the hashchange event
+            });
+        });
+
+// Listen for hash changes (browser back/forward)
+window.addEventListener('hashchange', handleRoute);
+
+// Initial route handling
+window.addEventListener('load', () => {
+    handleRoute();  // Handle initial route
+    // Set initial active state if no hash present
+    if (!window.location.hash) {
+        document.querySelector('.nav-links a[data-section="projects"]').classList.add('active');
+    }
+});
+
+// Remove the duplicate event listener block below
+// document.querySelectorAll('.nav-links a, .site-logo').forEach(link => { ... });
+
+// Remove this line as it's now handled in the load event
+// document.querySelector('.nav-links a[data-section="projects"]').classList.add('active');
+
+// ... rest of your JavaScript code ...
+
+// Set the current year in the copyright notice
+const currentYear = new Date().getFullYear();
+document.getElementById('copyright').textContent = `Copyright (c) ${currentYear} Grady O'Connell`;
+
+// Update eye and PFP movement
+document.addEventListener('mousemove', (e) => {
+    // Handle PFP container tilt
+    const pfpContainer = document.querySelector('.pfp-container');
+    if (pfpContainer) {
+        const rect = pfpContainer.getBoundingClientRect();
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+        
+        const mouseX = e.clientX - centerX;
+        const mouseY = e.clientY - centerY;
+        
+        const maxRotation = 15; // Maximum rotation in degrees
+        const rotateX = (mouseY / (window.innerHeight / 2)) * -maxRotation;
+        const rotateY = (mouseX / (window.innerWidth / 2)) * maxRotation;
+        
+        pfpContainer.style.transform = `
+            perspective(1000px)
+            rotateX(${rotateX}deg)
+            rotateY(${rotateY}deg)
+        `;
+    }
+
+    // Handle eye movement
+    const eyes = document.querySelectorAll('.eye-left, .eye-right');
+    eyes.forEach(eye => {
+        const rect = eye.getBoundingClientRect();
+        const eyeCenterX = rect.left + rect.width / 2;
+        const eyeCenterY = rect.top + rect.height / 2;
+        
+        const angle = Math.atan2(e.clientY - eyeCenterY, e.clientX - eyeCenterX);
+        const distance = Math.min(2, Math.hypot(e.clientX - eyeCenterX, e.clientY - eyeCenterY) / 100);
+        
+        const x = Math.cos(angle) * distance;
+        const y = Math.sin(angle) * distance;
+        
+        eye.style.transform = `translate(${x}px, ${y}px)`;
+    });
+});
+
+// Reset PFP transform when mouse leaves window
+document.addEventListener('mouseleave', () => {
+    const pfpContainer = document.querySelector('.pfp-container');
+    if (pfpContainer) {
+        pfpContainer.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
+    }
+});
+
+// Add random blinking
+function triggerBlink() {
+    const eyes = document.querySelectorAll('.eye-left, .eye-right');
+    eyes.forEach(eye => {
+        eye.classList.add('blinking');
+        setTimeout(() => {
+            eye.classList.remove('blinking');
+        }, 200);
+    });
+
+    // Schedule next blink
+    const nextBlink = Math.random() * (5000 - 2000) + 2000; // Random time between 2-5 seconds
+    setTimeout(triggerBlink, nextBlink);
+}
+
+// Start blinking after a short delay
+setTimeout(triggerBlink, 2000);
+    </script>
+</body>
 </html>
