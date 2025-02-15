@@ -1428,6 +1428,92 @@
             align-items: center;
             margin-right: 10px;
         }
+
+        /* Add this to your existing styles */
+        .music-btn {
+            background-color: #4169E1;  /* Royal Blue */
+        }
+
+        .music-btn:hover {
+            background-color: #1E90FF;  /* Dodger Blue */
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3),
+                      0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .app-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            justify-items: center;  /* Center items horizontally */
+            justify-content: center;  /* Center the entire grid */
+            max-width: 800px;  /* Limit maximum width */
+            margin: 0 auto;  /* Center the grid container */
+            background: rgba(0, 0, 0, 0.05);  /* Subtle dark background */
+            border-radius: 15px;  /* Rounded corners */
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);  /* Subtle inner shadow */
+        }
+
+        .app-icon {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            transition: transform 0.2s ease;
+            position: relative;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+
+        .app-icon img {
+            width: 64px;
+            height: 64px;
+            border-radius: 12px;
+            margin-bottom: 8px;
+            box-shadow: 
+                0 6px 12px rgba(0, 0, 0, 0.2),  /* Deeper outer shadow */
+                0 4px 6px rgba(0, 0, 0, 0.1),   /* Secondary shadow */
+                0 2px 5px rgba(0, 0, 0, 0.15),  /* Additional depth shadow */
+                inset 0 2px 5px rgba(0, 0, 0, 0.2),  /* Inner shadow for engraved effect */
+                inset 0 -2px 2px rgba(0, 0, 0, 0.1);  /* Bottom inner shadow */
+            border: 1px solid rgba(255, 255, 255, 0.6);  /* Subtle border */
+            background: linear-gradient(145deg, 
+                rgba(255, 255, 255, 0.4) 0%, 
+                rgba(255, 255, 255, 0.1) 100%
+            );  /* Gradient overlay for depth */
+            transition: all 0.3s ease;
+            transform: translateZ(10px);
+            filter: brightness(1.05) drop-shadow(0 8px 16px rgba(0, 0, 0, 0.35));
+        }
+
+        .app-icon:hover img {
+            transform: translateY(-5px) translateZ(20px);
+            box-shadow: 
+                0 8px 16px rgba(0, 0, 0, 0.25),  /* Enhanced outer shadow on hover */
+                0 6px 8px rgba(0, 0, 0, 0.15),   /* Enhanced secondary shadow */
+                0 4px 6px rgba(0, 0, 0, 0.2),    /* Additional hover shadow */
+                inset 0 1px 3px rgba(255, 255, 255, 0.9),  /* Brighter top highlight */
+                inset 0 -2px 2px rgba(0, 0, 0, 0.15);  /* Deeper bottom shadow */
+            filter: brightness(1.1) drop-shadow(0 8px 16px rgba(0, 0, 0, 0.35));
+        }
+
+        .app-icon .caption {
+            text-align: center;
+            color: #333;
+            font-size: 14px;
+            max-width: 120px;
+            margin-top: 5px;
+            text-shadow: 
+                0 1px 1px rgba(255, 255, 255, 0.8),  /* Top highlight */
+                0 -1px 1px rgba(0, 0, 0, 0.1);  /* Bottom shadow */
+        }
+
+        .app-icon .title {
+            font-weight: bold;
+            margin-bottom: 4px;
+            color: #222;  /* Slightly darker for better contrast */
+        }
     </style>
 </head>
 <body>
@@ -1453,7 +1539,7 @@
             <ul class="nav-links">
                 <li><a href="#" data-section="projects"><i class="fas fa-code"></i>Projects</a></li>
                 <li><a href="#" data-section="music"><i class="fas fa-music"></i>Music</a></li>
-                <li><a href="#" data-section="writings"><i class="fas fa-pen"></i>Writings</a></li>
+                <li><a href="#" data-section="shelf"><i class="fas fa-book"></i>Shelf</a></li>
                 <li><a href="#" data-section="contact"><i class="fas fa-envelope"></i>Contact</a></li>
             </ul>
             <div class="social-links">
@@ -1483,7 +1569,7 @@
             </a>
             <!-- Message Bubble -->
             <div class="message-bubble">
-                <p>Hi, I'm Flipcoder! I'm a software developer and musician. Welcome to my new page!</p>
+                <p>Hi, I'm Flipcoder! I'm a developer, designer, and musician. Welcome to my new page!</p>
             </div>
         </div>
 
@@ -1497,25 +1583,43 @@
                     <a href="#midimech">  <!-- Updated link to point to the new midimech section -->
                         <div class="project-image-wrapper">
                             <img src="images/midimech.png" alt="midimech" class="project-image">
-                            <p class="project-description">Isomorphic Musical Layout Engine</p>
+                            <p class="project-description">🎵 Isomorphic Musical Layout Engine</p>
                         </div>
                     </a>
                 </div>
+
+                <!-- <div class="project-container">
+                    <a href="#couchsynth"><div class="project-image-wrapper">
+                            <img src="images/couchsynth.png" alt="Couchsynth" class="project-image">
+                            <p class="project-description">Use a Game Controller as an Instrument</p>
+                        </div>
+                    </a>
+                </div> -->
 
                 <div class="project-container">
                     <a href="#textbeat">  <!-- Updated link to point to the new TextBeat section -->
                         <div class="project-image-wrapper">
                             <img src="images/textbeat.png" alt="TextBeat" class="project-image">
-                            <p class="project-description">Text-based Music Sequencer and Midi Shell</p>
+                            <p class="project-description">🎹 Text-based Music Sequencer and Midi Shell</p>
                         </div>
                     </a>
                 </div>
+
+                <br/>
+                <div class="pfp-message-container" style="margin: 10px 0;">
+                    <div class="message-bubble">
+                        <p>...and there might be something else here soon! 🤔</p>
+                    </div>
+                </div>
+                
+                <br/><br/>
+                <h1><i class="fas fa-save"></i>Legacy</h1>
 
                 <div class="project-container">
                     <a href="#qor">  <!-- Updated link to point to the new Qor section -->
                         <div class="project-image-wrapper">
                             <img src="images/qor.png" alt="Qor Game Engine" class="project-image">
-                            <p class="project-description">C++ OpenGL Game Engine</p>
+                            <p class="project-description">⚙️ C++ OpenGL Game Engine</p>
                         </div>
                     </a>
                 </div>
@@ -1524,7 +1628,7 @@
                     <a href="#hip">  <!-- Updated link to point to the new Hacking in Progress section -->
                         <div class="project-image-wrapper">
                             <img src="images/hip.png" alt="Hacking in Progress" class="project-image">
-                            <p class="project-description">GitHub Game-Off 2016 Featured Game</p>
+                            <p class="project-description">🏆 GitHub Game-Off 2016 Featured Game 🏆</p>
                         </div>
                     </a>
                 </div>
@@ -1555,6 +1659,14 @@
                         </div>
                     </a>
                 </div>
+
+                <div class="pfp-message-container" style="margin: 10px 0;">
+                    <div class="message-bubble">
+                        <p>...and there's more where that came from on my <a href="https://github.com/flipcoder" target="_blank" style="color: #ff5500; text-decoration: none; font-weight: bold;">GitHub</a>!</p>
+                    </div>
+                </div>
+                <br/>
+
             </div>
 
             <!-- New Midimech Section -->
@@ -1562,22 +1674,41 @@
                 <h1>
                     <img src="images/midimech-icon.png" alt="Midimech Icon" style="height: 24px; vertical-align: middle; margin-right: 5px;"> <!-- Use the Midimech icon -->
                     midimech
-                </h1>
+                    </h1>
                 <div class="card">
-                    <h3>About midimech</h3>
-                    <p>Midimech is an isomorphic musical layout engine for LinnStrument and Launchpad X.</p>
-                    <p>For more information, visit the <a href="https://github.com/flipcoder/midimech" target="_blank" style="color: #ff5500; text-decoration: none; font-weight: bold;">GitHub page</a>.</p>
+                    <h3>midimech</h3>
+                    
+                    <p>Midimech is an isomorphic musical layout system intended to bring the easy to play wholetone layout to more instruments and devices.</p>
+                    
+                    <p>There are two versions of midimech, both are <strong>IN DEVELOPMENT.</strong></p>
+                    
+                    <h3>midimech (for LinnStrument and Launchpad X) 
+                        <i class="fab fa-windows" title="Windows" style="margin-left: 5px; color: #0078D6;"></i>
+                        <i class="fab fa-apple" title="macOS" style="margin-left: 5px; color: #555;"></i>
+                    </h3> 
                     
                     <!-- Screenshot of Midimech -->
                     <img src="images/midimech-screen0.png" alt="Midimech Screenshot" style="max-width: 100%; border-radius: 10px; margin-top: 10px;"> <!-- Updated image source -->
 
                     <!-- Buttons for Download and View Source -->
                     <div class="button-container">
-                        <a href="https://github.com/flipcoder/midimech/releases" target="_blank" class="btn download-btn">
-                            <i class="fas fa-download"></i> Download
+                        <a href="https://github.com/flipcoder/midimech" target="_blank" class="btn download-btn">
+                            <i class="fas fa-download"></i> Download (Beta)
                         </a>
                         <a href="https://github.com/flipcoder/midimech" target="_blank" class="btn view-source-btn">
                             <i class="fas fa-code"></i> View Source
+                        </a>
+                    </div>
+
+                    <h3>midimech Touch (Web) 
+                        <i class="fas fa-mobile-alt" title="Mobile Web" style="margin-left: 5px; color: #555;"></i>
+                    </h3>
+
+                    <img src="images/midimech-touch-screen0.png" alt="Midimech Screenshot" style="max-width: 100%; border-radius: 10px; margin-top: 10px;"> <!-- Updated image source -->
+
+                    <div class="button-container">
+                        <a href="https://midimech.net" target="_blank" class="btn download-btn">
+                            <i class="fas fa-mobile-alt"></i> Play
                         </a>
                     </div>
                 </div>
@@ -1585,24 +1716,38 @@
 
             <!-- New Qor Section -->
             <div id="qor" class="content-section">
-                <h1>Qor</h1>  <!-- Removed the icon -->
+                <h1>Qor</h1>
                 <div class="card">
-                    <h3>About Qor</h3>
+                    <h3>Qor Engine</h3>
                     <p>Qor is a C++ OpenGL game engine with Python scripting.</p>
-                    <p>For more information, visit the <a href="https://github.com/flipcoder/qor" target="_blank" style="color: #ff5500; text-decoration: none; font-weight: bold;">GitHub page</a>.</p>
+                    <p>I used it in the GitHub Game-Off 2016 entry <a href="https://github.com/flipcoder/game-off-2016" target="_blank" style="color: #ff5500; text-decoration: none; font-weight: bold;">Hacking in Progress</a>.</p>
+                    <p>It was my first general-purpose engine and is no longer maintained.</p>
                     
+                    <img src="images/qor-screen0.jpg" alt="Qor Screenshot" style="max-width: 100%; border-radius: 10px; margin-top: 10px;"/> <!-- Updated image source -->
+
                     <!-- Buttons for Download and View Source -->
                     <div class="button-container">
                         <a href="https://github.com/flipcoder/qor" target="_blank" class="btn view-source-btn">
-                            <i class="fas fa-code"></i> View Source
+                            <i class="fas fa-code"></i> Engine
+                        </a>
+                        <a href="https://github.com/flipcoder/FRAG.EXE" target="_blank" class="btn view-source-btn">
+                            <i class="fas fa-code"></i> Example Game
                         </a>
                     </div>
                 </div>
             </div>
 
+            <!-- Couchsynth Section -->
+            <div id="couchsynth" class="content-section">
+                <h1>Couchsynth</h1>
+                <div class="card">
+                    <p><center>Check back soon!</center></p>
+                </div>
+            </div>
+
             <!-- New TextBeat Section -->
             <div id="textbeat" class="content-section">
-                <h1>TextBeat</h1>  <!-- Removed the icon -->
+                <h1>TextBeat</h1>
                 <div class="card">
                     <h3>About TextBeat</h3>
                     <p>TextBeat is a text-based music sequencer, MIDI shell, and music theory language with Vim integration.</p>
@@ -1666,6 +1811,10 @@
                             <i class="fas fa-code"></i> View Source
                         </a>
                     </div>
+
+                    <br/>
+
+                    <img src="images/bomberoni-screen0.png" alt="Bomberoni Screenshot" style="max-width: 100%; border-radius: 10px; margin-top: 10px;"> <!-- Updated image source -->
                 </div>
             </div>
 
@@ -1674,15 +1823,29 @@
                 <h1>Hacking in Progress</h1>  <!-- Project title -->
                 <div class="card">
                     <h3>About Hacking in Progress</h3>
+
+                    <p>Hacking in Progress 80's style is a stealth hacking game.</p>
                     <p>This project was created for the GitHub Game Off 2016 and was one of the featured winners.</p>
-                    <p>For more information, visit the <a href="https://github.com/flipcoder/game-off-2016" target="_blank" style="color: #ff5500; text-decoration: none; font-weight: bold;">GitHub page</a>.</p>
-                    
+
+                    <p>The 80's style probably influenced the GitHub Game-Off branding.</p>
+
+                    <p>Programming and Music by <a href="https://github.com/flipcoder" target="_blank" style="color: #ff5500; text-decoration: none; font-weight: bold;">Grady O'Connell</a></p>
+                    <p>Graphics by <a href="https://github.com/alfredanonymous" target="_blank" style="color: #ff5500; text-decoration: none; font-weight: bold;">Mark "Alfred" McDaniel</a></p>
+
                     <!-- Buttons for Download and View Source -->
                     <div class="button-container">
                         <a href="https://github.com/flipcoder/game-off-2016" target="_blank" class="btn view-source-btn">
                             <i class="fas fa-code"></i> View Source
                         </a>
+                        <a href="https://soundcloud.com/flipcoder/hacking-in-progress-theme" target="_blank" class="btn view-source-btn music-btn">
+                            <i class="fas fa-music"></i> Music
+                        </a>
                     </div>
+
+                    <br/>
+
+                    <img src="images/hip-screen1.png" alt="Hacking in Progress Screenshot" style="max-width: 100%; border-radius: 10px; margin-top: 10px;"> <!-- Updated image source -->
+                    <img src="images/hip-screen0.png" alt="Hacking in Progress Screenshot" style="max-width: 100%; border-radius: 10px; margin-top: 10px;"> <!-- Updated image source -->
                 </div>
             </div>
 
@@ -1700,12 +1863,71 @@
             </div>
 
             <!-- Writings Section -->
-            <div id="writings" class="content-section">
-                <h1><i class="fas fa-pen"></i>Writings</h1>
+            <div id="shelf" class="content-section">
+                <h1><i class="fas fa-book"></i>Shelf</h1>
                 <div class="card">
-                    <p>Nothing here yet! Check back soon!</p>
+                    <div class="pfp-message-container" style="margin: 10px 0;">
+                        <p>I'll be adding some resources here soon!</p>
+                    </div>
                 </div>
             </div>
+
+            <!-- Links Section -->
+            <!-- <div id="links" class="content-section">
+                <h1><i class="fas fa-link"></i>Links</h1>
+                <div class="card">
+                    <style>
+                        .app-grid {
+                            display: grid;
+                            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+                            gap: 20px;
+                            padding: 20px;
+                        }
+
+                        .app-icon {
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                            text-decoration: none;
+                            transition: transform 0.2s ease;
+                        }
+
+                        .app-icon:hover {
+                            transform: translateY(-5px);
+                        }
+
+                        .app-icon img {
+                            width: 64px;
+                            height: 64px;
+                            border-radius: 12px;
+                            margin-bottom: 8px;
+                            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                        }
+
+                        .app-icon .caption {
+                            text-align: center;
+                            color: #333;
+                            font-size: 14px;
+                            max-width: 120px;
+                            margin-top: 5px;
+                        }
+
+                        .app-icon .title {
+                            font-weight: bold;
+                            margin-bottom: 4px;
+                        }
+                    </style>
+
+                    <div class="app-grid">
+                        <a href="https://t3-i.com" target="_blank" class="app-icon">
+                            <img src="images/t_cubed_software_logo.png" alt="T-Cubed Software">
+                            <span class="caption">
+                                <div class="title">T-Cubed Software</div
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div> -->
 
             <!-- Contact Section -->
             <div id="contact" class="content-section">
