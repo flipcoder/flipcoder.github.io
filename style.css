@@ -1287,6 +1287,12 @@ a {
     background-blend-mode: overlay;
 }
 
+#bdestroyers-container {
+    background-image: url('images/noise.png');
+    background-color: rgb(38, 0, 75); /* Semi-transparent color overlay */
+    background-blend-mode: overlay;
+}
+
 #microarmy-container {
     background-image: url('images/noise.png');
     background-color: rgb(16, 43, 101); /* Semi-transparent color overlay */
